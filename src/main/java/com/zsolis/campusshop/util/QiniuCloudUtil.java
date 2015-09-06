@@ -9,7 +9,8 @@ public class QiniuCloudUtil {
 	Auth auth;
 	
 	public QiniuCloudUtil() {
-		auth = Auth.create("jVgnpro4xBAoZ6co2CVsTrKwpzsEpT5pfaIokK8G", "e2Rc6I3ov2AObbMnHTZVxV_8asDOiwDabZs74_5_");
+		//ÃÓ–¥∆ﬂ≈£‘∆µƒ’À∫≈√‹¬Î
+		auth = Auth.create("", "");
 	}
 	
 	public String getUploadToken() {

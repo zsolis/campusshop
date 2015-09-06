@@ -16,8 +16,8 @@ public class SMSUtil {
 	private CloseableHttpClient httpClient;
 	
 	public SMSUtil() {
-		userName = "ctyswse-66";
-		password = "1eb8ef";
+		userName = "";
+		password = "";
 		httpClient = HttpClients.createDefault();
 	}
 	

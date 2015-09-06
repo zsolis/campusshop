@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gouleme</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">yang</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.time_out">5000</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+<!-- 		<property name="hbm2ddl.auto">update</property> -->
+		<property name="show_sql">true</property>
+		
+		<mapping class="com.zsolis.campusshop.domain.Address"/>
+		<mapping class="com.zsolis.campusshop.domain.Administrator"/>
+		<mapping class="com.zsolis.campusshop.domain.AdministratorImage"/>
+		<mapping class="com.zsolis.campusshop.domain.AlipayDirectOrder"/>
+		<mapping class="com.zsolis.campusshop.domain.Campus"/>
+		<mapping class="com.zsolis.campusshop.domain.CampusAdministrator"/>
+		<mapping class="com.zsolis.campusshop.domain.CampusRecommendImage"/>
+		<mapping class="com.zsolis.campusshop.domain.CampusRecommendItem"/>
+		<mapping class="com.zsolis.campusshop.domain.CampusRegion"/>
+		<mapping class="com.zsolis.campusshop.domain.CampusStore"/>
+		<mapping class="com.zsolis.campusshop.domain.CashOrder"/>
+		<mapping class="com.zsolis.campusshop.domain.Category"/>
+		<mapping class="com.zsolis.campusshop.domain.City"/>
+		<mapping class="com.zsolis.campusshop.domain.Comment"/>
+		<mapping class="com.zsolis.campusshop.domain.CommentResponse"/>
+		<mapping class="com.zsolis.campusshop.domain.CommonItem"/>
+		<mapping class="com.zsolis.campusshop.domain.Feedback"/>
+		<mapping class="com.zsolis.campusshop.domain.FeedbackResponse"/>
+		<mapping class="com.zsolis.campusshop.domain.GroupItem"/>
+		<mapping class="com.zsolis.campusshop.domain.Item"/>
+		<mapping class="com.zsolis.campusshop.domain.ItemDetailImage"/>
+		<mapping class="com.zsolis.campusshop.domain.ItemImage"/>
+		<mapping class="com.zsolis.campusshop.domain.Order"/>
+		<mapping class="com.zsolis.campusshop.domain.OrderItem"/>
+		<mapping class="com.zsolis.campusshop.domain.OrderStatusLog"/>
+		<mapping class="com.zsolis.campusshop.domain.PromotionItem"/>
+		<mapping class="com.zsolis.campusshop.domain.RegisteredUser"/>
+		<mapping class="com.zsolis.campusshop.domain.Store"/>
+		<mapping class="com.zsolis.campusshop.domain.StoreRecommendItem"/>
+		<mapping class="com.zsolis.campusshop.domain.SuperAdministrator"/>
+		<mapping class="com.zsolis.campusshop.domain.TemporaryUser"/>
+		<mapping class="com.zsolis.campusshop.domain.User"/>
+		<mapping class="com.zsolis.campusshop.domain.UserCartItem"/>
+		<mapping class="com.zsolis.campusshop.domain.UserFavoriteItem"/>
+		<mapping class="com.zsolis.campusshop.domain.UserFavoriteStore"/>
+	</session-factory>
+</hibernate-configuration>

@@ -1,14 +1,14 @@
-package com.zsolis.campusshop.util;
+package com.zsolis.campusshop.service;
 
 import org.springframework.stereotype.Component;
 
 import com.qiniu.util.*;
 
 @Component
-public class QiniuCloudUtil {
-	Auth auth;
+public class QiniuCloudHelper {
+	private Auth auth;
 	
-	public QiniuCloudUtil() {
+	public QiniuCloudHelper() {
 		//ÌîĞ´ÆßÅ£ÔÆµÄÕËºÅÃÜÂë
 		auth = Auth.create("", "");
 	}

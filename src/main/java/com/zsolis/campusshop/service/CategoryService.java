@@ -1,6 +1,7 @@
 package com.zsolis.campusshop.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
@@ -29,11 +30,12 @@ public class CategoryService {
 		return categoryDAO.addCategory(name);
 	}
 	
-	public void setCategory(Long categoryId, String name) {
+	public Map<String, String> setCategory(Long categoryId, String name) {
 		Category category = categoryDAO.getCategoryById(categoryId);
 		if (category == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("categoryId´íÎó");
 		}
 		category.setName(name);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

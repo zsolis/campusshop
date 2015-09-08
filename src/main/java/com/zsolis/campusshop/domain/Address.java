@@ -26,12 +26,13 @@ public class Address {
 	
 	public Address() {}
 	public Address(Campus campus, CampusRegion campusRegion, String detail,
-			String phoneNumber, String name) {
+			String phoneNumber, String name, User user) {
 		this.campus = campus;
 		this.campusRegion = campusRegion;
 		this.detail = detail;
 		this.phoneNumber = phoneNumber;
 		this.name = name;
+		this.user = user;
 	}
 
 	public Long getId() {

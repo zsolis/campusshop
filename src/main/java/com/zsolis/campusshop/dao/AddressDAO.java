@@ -53,13 +53,17 @@ public class AddressDAO extends DAO{
 		if(address != null) {
 			addressMap.put("id", address.getId());
 			addressMap.put("finalAddress", address.getFinalAddress());
+		} else {
+			Session session = getSession();
+			Query query = session.createQuery("from Address a where a.user = :user and a.status = 0")
+					.setEntity("user", user);
+			Address newAddress = (Address)query.uniqueResult();
+			if (newAddress == null) {
+				return null;
+			}
+			addressMap.put("id", newAddress.getId());
+			addressMap.put("finalAddress", newAddress.getFinalAddress());
 		}
-		Session session = getSession();
-		Query query = session.createQuery("from Address a where a.user = :user and a.status = 0")
-				.setEntity("user", user);
-		Address newAddress = (Address)query.uniqueResult();
-		addressMap.put("id", newAddress.getId());
-		addressMap.put("finalAddress", newAddress.getFinalAddress());
 		return addressMap;
 	}
 	
@@ -67,8 +71,8 @@ public class AddressDAO extends DAO{
 	 * @return
 	 * 添加用户地址，返回ID
 	 */
-	public Long addAddress(Campus campus, CampusRegion campusRegion, String detail, String phoneNumber, String name) {
-		Address address = new Address(campus, campusRegion, detail, phoneNumber, name);
+	public Long addAddress(User user, Campus campus, CampusRegion campusRegion, String detail, String phoneNumber, String name) {
+		Address address = new Address(campus, campusRegion, detail, phoneNumber, name, user);
 		Session session = getSession();
 		return (Long)session.save(address);
 	}

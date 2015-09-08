@@ -43,20 +43,22 @@ public class StoreService {
 		return storeDAO.getStoreMapByStore(store);
 	}
 	
-	public void addUserFavoriteStore(Long userId, Long storeId) {
+	public Map<String, String> addUserFavoriteStore(Long userId, Long storeId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Store store = new Store();
 		store.setId(storeId);
 		storeDAO.addUserFavoriteStore(user, store);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeUserFavoriteStore(Long userId, Long storeId) {
+	public Map<String, String> removeUserFavoriteStore(Long userId, Long storeId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Store store = new Store();
 		store.setId(storeId);
 		storeDAO.removeUserFavoriteStore(user, store);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
 	public Long addStore(String account, String password, String name, String address, String phoneNumber) {
@@ -66,8 +68,8 @@ public class StoreService {
 		return storeDAO.addStore(account, password, name, address, phoneNumber);
 	}
 	
-	public boolean checkPassword(String account, String passwordAfterSalt) {
-		Store store = storeDAO.getStoreByAccount(account);
+	public boolean checkPassword(Long storeId, String passwordAfterSalt) {
+		Store store = storeDAO.getStoreById(storeId);
 		if(store == null) {
 			return false;
 		}
@@ -110,18 +112,19 @@ public class StoreService {
 		return jedisStoreOnlineDAO.checkStoreOnline(storeId);
 	}
 	
-	public void setPassword(Long storeId, String password) {
+	public Map<String, String> setPassword(Long storeId, String password) {
 		Store store = storeDAO.getStoreById(storeId);
 		if (store == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("storeId´íÎó");
 		}
 		store.setPassword(password);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setStore(Long storeId, String name, String phoneNumber, String address, String description, String statement, Float minimumAmount, Float deliveryFee, String imagePath) {
+	public Map<String, String> setStore(Long storeId, String name, String phoneNumber, String address, String description, String statement, Float minimumAmount, Float deliveryFee, String imagePath) {
 		Store store = storeDAO.getStoreById(storeId);
 		if(store == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("storeId´íÎó");
 		}
 		if(name != null) {
 			store.setName(name);
@@ -147,5 +150,6 @@ public class StoreService {
 		if(imagePath != null) {
 			store.setImagePath(imagePath);
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

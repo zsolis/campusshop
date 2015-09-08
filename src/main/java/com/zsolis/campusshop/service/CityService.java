@@ -1,6 +1,7 @@
 package com.zsolis.campusshop.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,10 @@ public class CityService {
 		return cityDAO.addCity(name, province);
 	}
 	
-	public void setCity(Long cityId, String name, String province) {
+	public Map<String, String> setCity(Long cityId, String name, String province) {
 		City city = cityDAO.getCityById(cityId);
 		if (city == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("cityId´íÎó");
 		}
 		if (name != null) {
 			city.setName(name);
@@ -34,5 +35,6 @@ public class CityService {
 		if (province != null) {
 			city.setProvince(province);
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

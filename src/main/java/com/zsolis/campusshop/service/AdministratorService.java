@@ -40,8 +40,8 @@ public class AdministratorService {
 		return administratorDAO.addCampusAdministrator(account, password, name, phoneNumber);
 	}
 	
-	public boolean checkPassword(String account, String passwordAfterSalt) {
-		Administrator administrator = administratorDAO.getAdministratorByAccount(account);
+	public boolean checkPassword(Long administratorId, String passwordAfterSalt) {
+		Administrator administrator = administratorDAO.getAdministratorById(administratorId);
 		if(administrator == null) {
 			return false;
 		}
@@ -75,18 +75,19 @@ public class AdministratorService {
 		return sessionTokenHelper.setSessionToken(administrator.getId(), "Admin");
 	}
 	
-	public void setPassword(Long administratorId, String password) {
+	public Map<String, String> setPassword(Long administratorId, String password) {
 		Administrator administrator = administratorDAO.getAdministratorById(administratorId);
 		if(administrator == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("administratorId´íÎó");
 		}
 		administrator.setPassword(password);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setCampusAdministrator(Long administratorId, String account, String name, String phoneNumber) {
+	public Map<String, String> setCampusAdministrator(Long administratorId, String account, String name, String phoneNumber) {
 		CampusAdministrator administrator = (CampusAdministrator)administratorDAO.getAdministratorById(administratorId);
 		if(administrator == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("administratorId´íÎó");
 		}
 		if (account != null) {
 			administrator.setAccount(account);
@@ -97,5 +98,6 @@ public class AdministratorService {
 		if(phoneNumber != null) {
 			administrator.setPhoneNumber(phoneNumber);
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

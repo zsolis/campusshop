@@ -24,7 +24,35 @@ public class SessionTokenHelper {
 		return sessionToken;
 	}
 	
-	public Long getIdBySessionToken(String sessionToken, String role) {
-		return jedisSessionTokenDAO.getIdBySessionToken(sessionToken, role);
+	public boolean checkSessionTokenExist(String sessionToken) {
+		String mixed = jedisSessionTokenDAO.getMixedBySessionToken(sessionToken);
+		if (mixed == null) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean checkSessionTokenRole(String role, String sessionToken) {
+		String mixed = jedisSessionTokenDAO.getMixedBySessionToken(sessionToken);
+		if (mixed == null) {
+			return false;
+		}
+		String [] splits = mixed.split("_");
+		if (splits[0].equals(role)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkSessionTokenId(String role, Long id, String sessionToken) {
+		String mixed = jedisSessionTokenDAO.getMixedBySessionToken(sessionToken);
+		if (mixed == null) {
+			return false;
+		}
+		String [] splits = mixed.split("_");
+		if (splits[0].equals(role) && splits[1].equals(id.toString())) {
+			return true;
+		}
+		return false;
 	}
 }

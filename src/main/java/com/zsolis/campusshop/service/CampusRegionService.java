@@ -28,10 +28,10 @@ public class CampusRegionService {
 		return campusRegionDAO.addCampusRegion(campus, name, description);
 	}
 	
-	public void setCampusRegion(Long campusRegionId, String name, String description) {
+	public Map<String, String> setCampusRegion(Long campusRegionId, String name, String description) {
 		CampusRegion campusRegion = campusRegionDAO.getCampusRegionById(campusRegionId);
 		if(campusRegion == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusRegionId´íÎó");
 		}
 		if (name != null) {
 			campusRegion.setName(name);
@@ -39,13 +39,15 @@ public class CampusRegionService {
 		if (description != null) {
 			campusRegion.setDescription(description);
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeCampusRegion(Long campusRegionId) {
+	public Map<String, String> removeCampusRegion(Long campusRegionId) {
 		CampusRegion campusRegion = campusRegionDAO.getCampusRegionById(campusRegionId);
 		if(campusRegion == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusRegionId´íÎó");
 		}
 		campusRegion.setStatus(CampusRegionStatus.deleted);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

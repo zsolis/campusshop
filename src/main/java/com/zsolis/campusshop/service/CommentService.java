@@ -61,11 +61,15 @@ public class CommentService {
 		return commentResponseDAO.addCommentResponse(comment, content);
 	}
 	
-	public void changeCommentStatus(Long commentId, CommentStatus status) {
+	public Map<String, String> changeCommentStatus(Long commentId, CommentStatus status) {
 		Comment comment = commentDAO.getCommentById(commentId);
+		if (comment == null) {
+			return ResponseStatusHelper.getErrorResponse("commentId´íÎó");
+		}
 		if(comment.getStatus() == status) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("status´íÎó");
 		}
 		comment.setStatus(status);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

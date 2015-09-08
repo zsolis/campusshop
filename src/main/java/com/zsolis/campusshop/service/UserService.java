@@ -30,11 +30,16 @@ public class UserService {
 		return userDAO.getUserMapByUser(user);
 	}
 	
-	public int sendVerifyCode(String phoneNumber) {
+	public Map<String, String> sendVerifyCode(String phoneNumber) {
 		if(userDAO.getUserByPhoneNumber(phoneNumber) != null) {
-			return 0;
+			return ResponseStatusHelper.getErrorResponse("phoneNumber´íÎó");
 		}
-		return verifyHelper.sendVerifyCode(phoneNumber);
+		int resultCode = verifyHelper.sendVerifyCode(phoneNumber);
+		if (resultCode == 1) {
+			return ResponseStatusHelper.getOkResponse();
+		} else {
+			return ResponseStatusHelper.getErrorResponse("´íÎó´úÂë" + resultCode);
+		}
 	}
 	
 	public Long addRegisteredUser(String phoneNumber, String password, Long campusId) {
@@ -52,8 +57,9 @@ public class UserService {
 		return userDAO.addTemporaryUser(campus);
 	}
 	
-	public void switchRegisteredUser(Long userId, String phoneNumber, String password) {
+	public Map<String, String> switchRegisteredUser(Long userId, String phoneNumber, String password) {
 		userDAO.switchRegisteredUser(userId, phoneNumber, password);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
 	public Map<String, String> checkLogin(String phoneNumber, String passwordAfterSalt) {
@@ -92,13 +98,21 @@ public class UserService {
 		return cryptUtil.comparePassword(passwordAfterSalt, user.getPassword());
 	}
 	
-	public void setPassword(Long userId, String password) {
+	public Map<String, String> setPassword(Long userId, String password) {
 		RegisteredUser user = (RegisteredUser)userDAO.getUserById(userId);
+		if (user == null) {
+			return ResponseStatusHelper.getErrorResponse("userId");
+		}
 		user.setPassword(password);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setPhoneNumber(Long userId, String phoneNumber) {
+	public Map<String, String> setPhoneNumber(Long userId, String phoneNumber) {
 		RegisteredUser user = (RegisteredUser)userDAO.getUserById(userId);
+		if (user == null) {
+			return ResponseStatusHelper.getErrorResponse("userId");
+		}
 		user.setPhoneNumber(phoneNumber);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

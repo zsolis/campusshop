@@ -118,36 +118,40 @@ public class ItemService {
 		return itemMap;
 	}
 	
-	public void addUserCartItem(Long userId, Long itemId) {
+	public Map<String, String> addUserCartItem(Long userId, Long itemId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.addUserCartItem(user, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeUserCartItem(Long userId, Long itemId) {
+	public Map<String, String> removeUserCartItem(Long userId, Long itemId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.removeUserCartItem(user, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void addUserFavoriteItem(Long userId, Long itemId) {
+	public Map<String, String> addUserFavoriteItem(Long userId, Long itemId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.addUserFavoriteItem(user, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeUserFavoriteItem(Long userId, Long itemId) {
+	public Map<String, String> removeUserFavoriteItem(Long userId, Long itemId) {
 		User user = new TemporaryUser();
 		user.setId(userId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.removeUserFavoriteItem(user, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
 	public Long addItem(String itemTypeString, Long categoryId, Long storeId, String name, Float presentPrice, Long stock, String brief, String detail, String barcode, Float originalPrice, Long limit) {
@@ -165,38 +169,48 @@ public class ItemService {
 		return null;
 	}
 	
-	public void addStoreRecommendItem(Long storeId, Long itemId, Long priority) {
+	public Map<String, String> addStoreRecommendItem(Long storeId, Long itemId, Long priority) {
 		Store store = new Store();
 		store.setId(storeId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.addStoreRecommendItem(store, item, priority);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeStoreRecommendItem(Long storeId, Long itemId) {
+	public Map<String, String> removeStoreRecommendItem(Long storeId, Long itemId) {
 		Store store = new Store();
 		store.setId(storeId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.removeStoreRecommendItem(store, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setStoreRecommendItem(Long storeId, Long itemId, Long priority) {
+	public Map<String, String> setStoreRecommendItem(Long storeId, Long itemId, Long priority) {
 		Store store = new Store();
 		store.setId(storeId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		StoreRecommendItem storeRecommendItem = itemDAO.getStoreRecommendItem(store, item);
 		storeRecommendItem.setPriority(priority);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeItem(Long itemId) {
+	public Map<String, String> removeItem(Long itemId) {
 		Item item = itemDAO.getItemById(itemId);
+		if (item == null) {
+			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+		}
 		item.setStatus(ItemStatus.deleted);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setItem(String newTypeString, Long itemId, Long categoryId, String name, Float presentPrice, Long stock, String brief, String detail, String barcode, ItemStatus status, Float originalPrice, Long limit) {
+	public Map<String, String> setItem(String newTypeString, Long itemId, Long categoryId, String name, Float presentPrice, Long stock, String brief, String detail, String barcode, ItemStatus status, Float originalPrice, Long limit) {
 		Item item = itemDAO.getItemById(itemId);
+		if (item == null) {
+			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+		}
 		if(categoryId != null) {
 			Category category = new Category();
 			category.setId(categoryId);
@@ -229,51 +243,62 @@ public class ItemService {
 			itemDAO.switchGroupItem(itemId, originalPrice);
 		} else if (newTypeString.equals("PromotionItem")) {
 			itemDAO.switchPromotionItem(itemId, originalPrice, limit);
+		} else {
+			return ResponseStatusHelper.getErrorResponse("newType´íÎó");
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void addItemMainImage(Long itemId, String path) {
+	public Map<String, String> addItemMainImage(Long itemId, String path) {
 		Long itemImageId = itemImageDAO.addItemImage(path, null, null);
 		ItemImage itemImage = new ItemImage();
 		itemImage.setId(itemImageId);
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
 		}
 		item.setMainImage(itemImage);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setItemMainImage(Long itemId, String path) {
+	public Map<String, String> setItemMainImage(Long itemId, String path) {
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
 		}
 		ItemImage itemImage = item.getMainImage();
 		itemImage.setPath(path);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void addCampusRecommendItem(Long campusId, Long itemId, Long priority) {
+	public Map<String, String> addCampusRecommendItem(Long campusId, Long itemId, Long priority) {
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.addCampusRecommendItem(campus, item, priority);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeCampusRecommendItem(Long campusId, Long itemId) {
+	public Map<String, String> removeCampusRecommendItem(Long campusId, Long itemId) {
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		itemDAO.removeCampusRecommendItem(campus, item);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void setCampusRecommendItem(Long campusId, Long itemId, Long priority) {
+	public Map<String, String> setCampusRecommendItem(Long campusId, Long itemId, Long priority) {
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		Item item = new CommonItem();
 		item.setId(itemId);
 		CampusRecommendItem campusRecommendItem = itemDAO.getCampusRecommendItem(campus, item);
+		if (campusRecommendItem == null) {
+			return ResponseStatusHelper.getErrorResponse("input´íÎó");
+		}
 		campusRecommendItem.setPriority(priority);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

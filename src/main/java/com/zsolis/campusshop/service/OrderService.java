@@ -13,7 +13,7 @@ public class OrderService {
 	@Autowired
 	private OrderDAO orderDAO;
 	@Autowired
-	private OrderStatusLogDAO orderStatusLongDAO;
+	private OrderStatusLogDAO orderStatusLogDAO;
 	@Autowired
 	private ItemDAO itemDAO;
 	@Autowired
@@ -91,12 +91,12 @@ public class OrderService {
 		return result;
 	}
 	
-	public Long addOrder(String orderType, Long userId, Long storeId, Long addressId, Set<Map<String, Long>> itemIds, String userNote) {
+	public Map<String, String> addOrder(String orderType, Boolean fromCart, Long userId, Long storeId, Long addressId, Set<Map<String, Long>> itemIds, String userNote) {
 		Address address = addressDAO.getAddressById(addressId);
 		Store store = storeDAO.getStoreById(storeId);
 		User user = userDAO.getUserById(userId);
 		if(!storeDAO.checkCampusArrival(address.getCampus(), store)){
-			return null;
+			return ResponseStatusHelper.getErrorResponse("本店不可送达该地址");
 		}
 		Set<Map<String, Object>> items = new HashSet<Map<String, Object>>();
 		Float totalPrice = 0.0F;
@@ -104,13 +104,24 @@ public class OrderService {
 		for(Map<String, Long> itemIdMap : itemIds) {
 			Item item = itemDAO.getItemById(itemIdMap.get("itemId"));
 			if(item.getStore().getId() != storeId) {
-				return null;
+				return ResponseStatusHelper.getErrorResponse("非本店商品");
 			}
 			Long quantity = itemIdMap.get("quantity");
-			totalPrice += item.getPresentPrice() * quantity;
-			//添加商品销量
+			if (item instanceof PromotionItem) {
+				PromotionItem promotionItem = (PromotionItem)item;
+				if (promotionItem.getLimit() < quantity) {
+					return ResponseStatusHelper.getErrorResponse("超过促销限购数量");
+				}
+			}
+			if (item.getStock() < quantity) {
+				return ResponseStatusHelper.getErrorResponse("超过库存数量");
+			}
+			if (fromCart) {
+				itemDAO.removeUserCartItem(user, item);
+			}
 			item.setSales(item.getSales() + quantity);
 			item.setStock(item.getStock() - quantity);
+			totalPrice += item.getPresentPrice() * quantity;
 			Map<String, Object> itemMap = new HashMap<String, Object>();
 			itemMap.put("item", item);
 			itemMap.put("quantity", quantity);
@@ -128,24 +139,26 @@ public class OrderService {
 			orderId = orderDAO.addCashOrder(user, store, address, items, userNote, deliveryFee, totalPrice);
 			Order order = new CashOrder();
 			order.setId(orderId);
-			orderStatusLongDAO.addOrderStatusLog(order, OrderStatus.beforeAccept);
+			orderStatusLogDAO.addOrderStatusLog(order, OrderStatus.beforeAccept);
 			jedisStoreOrderDAO.addStoreOrder(storeId);
 		} else if(orderType.equals("AlipayDirectOrder")) {
 			orderId = orderDAO.addAlipayDirectOrder(user, store, address, items, userNote, deliveryFee, totalPrice);
 			Order order = new CashOrder();
 			order.setId(orderId);
-			orderStatusLongDAO.addOrderStatusLog(order, OrderStatus.beforePay);
+			orderStatusLogDAO.addOrderStatusLog(order, OrderStatus.beforePay);
+		} else {
+			return ResponseStatusHelper.getErrorResponse("orderType错误");
 		}
-		return orderId;
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void changeOrderStatus(Long orderId, OrderStatus status) {
+	public Map<String, String> changeOrderStatus(Long orderId, OrderStatus status) {
 		Order order = orderDAO.getOrderById(orderId);
 		if(order == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("orderId错误");
 		}
 		if(order.getStatus().ordinal() >= status.ordinal()) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("status错误");
 		}
 		if(status == OrderStatus.beforeAccept) {
 			jedisStoreOrderDAO.addStoreOrder(order.getStore().getId());
@@ -154,6 +167,13 @@ public class OrderService {
 			jedisStoreOrderDAO.removeStoreOrder(order.getStore().getId());
 		}
 		order.setStatus(status);
-		orderStatusLongDAO.addOrderStatusLog(order, status);
+		orderStatusLogDAO.addOrderStatusLog(order, status);
+		return ResponseStatusHelper.getOkResponse();
+	}
+	
+	public List<Map<String, Object>> getOrderStatusLogs(Long orderId) {
+		Order order = new CashOrder();
+		order.setId(orderId);
+		return orderStatusLogDAO.getOrderStatusLogs(order);
 	}
 }

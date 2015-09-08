@@ -38,29 +38,35 @@ public class CampusService {
 		return campusDAO.getCampusByStore(store);
 	}
 	
-	public void addCampusStore(Long storeId, Long campusId) {
+	public Map<String, String> addCampusStore(Long storeId, Long campusId) {
 		Store store = new Store();
 		store.setId(storeId);
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		campusDAO.addCampusStore(campus, store, 0L);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void removeCampusStore(Long storeId, Long campusId) {
+	public Map<String, String> removeCampusStore(Long storeId, Long campusId) {
 		Store store = new Store();
 		store.setId(storeId);
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		campusDAO.removeCampusStore(campus, store);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void changeCampusStoreStatus(Long storeId, Long campusId, CampusStatus status) {
+	public Map<String, String> changeCampusStoreStatus(Long storeId, Long campusId, CampusStatus status) {
 		Store store = new Store();
 		store.setId(storeId);
 		Campus campus = new Campus();
 		campus.setId(campusId);
 		CampusStore campusStore = campusDAO.getCampusStore(campus, store);
+		if (campusStore == null) {
+			return ResponseStatusHelper.getErrorResponse("input´íÎó");
+		}
 		campusStore.setStatus(status);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
 	public Long addCampus(Long cityId, Long administratorId, String name, String description) {
@@ -71,10 +77,10 @@ public class CampusService {
 		return campusDAO.addCampus(administrator, city, name, description);
 	}
 	
-	public void setCampus(Long campusId, Long cityId, String name, String description) {
+	public Map<String, String> setCampus(Long campusId, Long cityId, String name, String description) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
 		}
 		if (cityId != null) {
 			City city = new City();
@@ -87,34 +93,36 @@ public class CampusService {
 		if (description != null) {
 			campus.setDescription(description);
 		}
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void changeCampusStatus(Long campusId, CampusStatus status) {
+	public Map<String, String> changeCampusStatus(Long campusId, CampusStatus status) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
 		}
 		campus.setStatus(status);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void deleteCampus(Long campusId) {
+	public Map<String, String> deleteCampus(Long campusId) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
 		}
 		SuperAdministrator administrator = administratorDAO.getSuperAdministrator();
 		campus.setAdministrator(administrator);
+		return ResponseStatusHelper.getOkResponse();
 	}
 	
-	public void changeCampusAdministrator(Long campusId, Long administratorId) {
+	public Map<String, String> changeCampusAdministrator(Long campusId, Long administratorId) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return;
+			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
 		}
-		Administrator administrator = administratorDAO.getAdministratorById(administratorId);
-		if (administrator == null) {
-			return;
-		}
+		Administrator administrator = new SuperAdministrator();
+		administrator.setId(administratorId);
 		campus.setAdministrator(administrator);
+		return ResponseStatusHelper.getOkResponse();
 	}
 }

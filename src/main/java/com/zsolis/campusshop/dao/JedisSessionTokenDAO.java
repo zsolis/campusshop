@@ -24,17 +24,13 @@ public class JedisSessionTokenDAO {
 		jedis.close();
 	}
 	
-	public Long getIdBySessionToken(String sessionToken, String role) {
+	public String getMixedBySessionToken(String sessionToken) {
 		Jedis jedis = jedisUtil.getJedisPool().getResource();
 		String mixed = jedis.hget(keyName, sessionToken);
 		jedis.close();
 		if(mixed == null) {
 			return null;
 		}
-		String [] splits = mixed.split("_");
-		if(!splits[0].equals(role)) {
-			return null;
-		}
-		return Long.parseLong(splits[1]);
+		return mixed;
 	}
 }

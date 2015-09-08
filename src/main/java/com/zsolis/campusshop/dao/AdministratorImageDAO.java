@@ -13,7 +13,7 @@ public class AdministratorImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»Ø¹ÜÀíÔ±Í¼Æ¬
+	 * æ ¹æ®IDè¿”å›ç®¡ç†å‘˜å›¾ç‰‡
 	 */
 	public AdministratorImage getAdministratorImageById(Long administratorImageId) {
 		Session session = getSession();
@@ -22,7 +22,7 @@ public class AdministratorImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ·µ»Ø¹ÜÀíÔ±ÒÑÉÏ´«µÄÍ¼Æ¬
+	 * è¿”å›ç®¡ç†å‘˜å·²ä¸Šä¼ çš„å›¾ç‰‡
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getAdministratorImages(Administrator administrator) {
@@ -35,7 +35,7 @@ public class AdministratorImageDAO extends DAO{
 	/**
 	 * @return List<Map<String, Object>
 	 * new map(c.location as location, c.url as url, c.image.path as imagePath)
-	 * ·µ»ØĞ£Ô°Ê×Ò³µÄÂÖ²¥Í¼Æ¬£¬°´Î»ÖÃÅÅĞò
+	 * è¿”å›æ ¡å›­é¦–é¡µçš„è½®æ’­å›¾ç‰‡ï¼ŒæŒ‰ä½ç½®æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusCarouselImagesOrderedByLocation(Campus campus) {
@@ -48,7 +48,7 @@ public class AdministratorImageDAO extends DAO{
 	/**
 	 * @return List<Map<String, Object>
 	 * new map(c.location as location, c.url as url, c.image.path as imagePath)
-	 * ·µ»ØĞ£Ô°Ê×Ò³µÄ¹ã¸æÍ¼Æ¬£¬°´Î»ÖÃÅÅĞò
+	 * è¿”å›æ ¡å›­é¦–é¡µçš„å¹¿å‘Šå›¾ç‰‡ï¼ŒæŒ‰ä½ç½®æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusAdImagesOrderedByLocation(Campus campus) {
@@ -60,7 +60,7 @@ public class AdministratorImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÉÌÆ·Í¼Æ¬
+	 * æ·»åŠ å•†å“å›¾ç‰‡
 	 */
 	public Long addAdministratorImage(Administrator administrator, String path) {
 		AdministratorImage image = new AdministratorImage(path, administrator);
@@ -69,7 +69,7 @@ public class AdministratorImageDAO extends DAO{
 	}
 	
 	/**
-	 * Ìí¼ÓĞ£Ô°ÍÆ¼öÍ¼Æ¬
+	 * æ·»åŠ æ ¡å›­æ¨èå›¾ç‰‡
 	 */
 	public void addCampusRecommendImage(Campus campus, AdministratorImage image, Long location, String url) {
 		CampusRecommendImage campusRecommendImage = new CampusRecommendImage(campus, image, location, url);
@@ -78,7 +78,7 @@ public class AdministratorImageDAO extends DAO{
 	}
 	
 	/**
-	 * É¾³ıĞ£Ô°ÍÆ¼öÍ¼Æ¬
+	 * åˆ é™¤æ ¡å›­æ¨èå›¾ç‰‡
 	 */
 	public void removeCampusRecommendImage(Campus campus, AdministratorImage image) {
 		CampusRecommendImage campusRecommendImage = new CampusRecommendImage(campus, image, 0L, "");
@@ -87,7 +87,7 @@ public class AdministratorImageDAO extends DAO{
 	}
 	
 	/**
-	 * ·µ»ØĞ£Ô°ÍÆ¼öÍ¼Æ¬
+	 * è¿”å›æ ¡å›­æ¨èå›¾ç‰‡
 	 */
 	public CampusRecommendImage getCampusRecommendImage(Campus campus, AdministratorImage image) {
 		Session session = getSession();

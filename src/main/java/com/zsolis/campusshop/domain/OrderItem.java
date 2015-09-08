@@ -67,11 +67,11 @@ public class OrderItem {
 	private Item item;
 	private Long quantity;
 	/**
-	 * 保存购买时商品的价格，防止改价后计算出错
+	 * 淇濆瓨璐拱鏃跺晢鍝佺殑浠锋牸锛岄槻姝㈡敼浠峰悗璁＄畻鍑洪敊
 	 */
 	private Float itemPrice;
 	/**
-	 * 保存购买时商品的修改日期，以便判断下次来是否修改
+	 * 淇濆瓨璐拱鏃跺晢鍝佺殑淇敼鏃ユ湡锛屼互渚垮垽鏂笅娆℃潵鏄惁淇敼
 	 */
 	private Date itemDate;
 	

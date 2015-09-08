@@ -17,7 +17,7 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İUser·µ»ØuserMap£¬²»·ÃÎÊÊı¾İ¿â
+	 * æ ¹æ®Userè¿”å›userMapï¼Œä¸è®¿é—®æ•°æ®åº“
 	 */
 	public Map<String, Object> getUserMapByUser(User user) {
 		Map<String, Object> userMap = new HashMap<String, Object>();
@@ -34,7 +34,7 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØÓÃ»§¸ù¾İID
+	 * è¿”å›ç”¨æˆ·æ ¹æ®ID
 	 */
 	public User getUserById(Long userId) {
 		Session session = getSession();
@@ -43,8 +43,8 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İÊÖ»úºÅ·µ»Ø×¢²áÓÃ»§
-	 * ÎŞÔò·µ»Ønull
+	 * æ ¹æ®æ‰‹æœºå·è¿”å›æ³¨å†Œç”¨æˆ·
+	 * æ— åˆ™è¿”å›null
 	 */
 	public RegisteredUser getUserByPhoneNumber(String phoneNumber) {
 		Session session = getSession();
@@ -55,8 +55,8 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İauthToken·µ»ØÓÃ»§
-	 * Ã»ÓĞÔò·µ»Ønull
+	 * æ ¹æ®authTokenè¿”å›ç”¨æˆ·
+	 * æ²¡æœ‰åˆ™è¿”å›null
 	 */
 	public User getUserByAuthToken(String authToken) {
 		Session session = getSession();
@@ -67,8 +67,8 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼Ó×¢²áÓÃ»§£¬µ÷ÓÃÇ°¼ì²éphoneNumber¶ÀÒ»
-	 * ·µ»ØUSER_ID
+	 * æ·»åŠ æ³¨å†Œç”¨æˆ·ï¼Œè°ƒç”¨å‰æ£€æŸ¥phoneNumberç‹¬ä¸€
+	 * è¿”å›USER_ID
 	 */
 	public Long addRisteredUser(String phoneNumber, String password, Campus campus) {
 		RegisteredUser user = new RegisteredUser(phoneNumber, password);
@@ -82,8 +82,8 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÁÙÊ±ÓÃ»§
-	 * ·µ»ØUSER_ID
+	 * æ·»åŠ ä¸´æ—¶ç”¨æˆ·
+	 * è¿”å›USER_ID
 	 */
 	public Long addTemporaryUser(Campus campus) {
 		TemporaryUser user = new TemporaryUser();
@@ -97,8 +97,8 @@ public class UserDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ½«ÁÙÊ±ÓÃ»§×ª»»³É×¢²áÓÃ»§
-	 * ·µ»Ø1±íÊ¾³É¹¦
+	 * å°†ä¸´æ—¶ç”¨æˆ·è½¬æ¢æˆæ³¨å†Œç”¨æˆ·
+	 * è¿”å›1è¡¨ç¤ºæˆåŠŸ
 	 */
 	public int switchRegisteredUser(Long userId, String phoneNumber, String password) {
 		Session session = getSession();

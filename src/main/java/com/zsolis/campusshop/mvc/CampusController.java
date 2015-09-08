@@ -38,7 +38,7 @@ public class CampusController {
 		}
 		Map<String, String> result = campusService.addCampusStore(storeId, campusId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -53,7 +53,7 @@ public class CampusController {
 		}
 		Map<String, String> result = campusService.removeCampusStore(storeId, campusId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -69,11 +69,11 @@ public class CampusController {
 		}
 		CampusStatus status = CampusStatus.valueOf(statusString);
 		if (status == null) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		Map<String, String> result = campusService.changeCampusStoreStatus(storeId, campusId, status);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -87,7 +87,7 @@ public class CampusController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (campusService.addCampus((Long)jsonMap.get("cityId"), administratorId, (String)jsonMap.get("name"), (String)jsonMap.get("description")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -102,7 +102,7 @@ public class CampusController {
 		}
 		Map<String, String> result = campusService.setCampus(campusId, (Long)jsonMap.get("cityId"), (String)jsonMap.get("name"), (String)jsonMap.get("description"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -117,11 +117,11 @@ public class CampusController {
 		}
 		CampusStatus status = CampusStatus.valueOf(sessionToken);
 		if (status == null) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		Map<String, String> result = campusService.changeCampusStatus(campusId, status);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -135,7 +135,7 @@ public class CampusController {
 		}
 		Map<String, String> result = campusService.deleteCampus(campusId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -150,7 +150,7 @@ public class CampusController {
 		}
 		Map<String, String> result = campusService.changeCampusAdministrator(campusId, administratorId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

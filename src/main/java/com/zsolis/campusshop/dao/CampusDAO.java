@@ -13,7 +13,7 @@ public class CampusDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID»ñµÃĞ£Ô°
+	 * æ ¹æ®IDè·å¾—æ ¡å›­
 	 */
 	public Campus getCampusById(Long campusId) {
 		Session session = getSession();
@@ -23,7 +23,7 @@ public class CampusDAO extends DAO {
 	/**
 	 * @return List<Map<String, String>>
 	 * new map(c.id as id, c.name as name, c.description as description)
-	 * ·µ»Ø¸Ã³ÇÊĞµÄÑ§Ğ£
+	 * è¿”å›è¯¥åŸå¸‚çš„å­¦æ ¡
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, String>> getCampusesByCity(City city, CampusStatus status) {
@@ -43,7 +43,7 @@ public class CampusDAO extends DAO {
 	/**
 	 * @return
 	 * new map(c.status as status, c.id as id, c.name as name, c.description as description)
-	 * ·µ»Ø¹ÜÀíÔ±¹ÜÏ½µÄĞ£Ô°
+	 * è¿”å›ç®¡ç†å‘˜ç®¡è¾–çš„æ ¡å›­
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusByAdministrator(Administrator administrator) {
@@ -56,7 +56,7 @@ public class CampusDAO extends DAO {
 	/**
 	 * @return
 	 * new map(c.status as status, c.campus.id as id, c.campus.name as name, c.campus.description as description)
-	 * ·µ»Ø¸ÃµêÆÌ·şÎñµÄĞ£Ô°
+	 * è¿”å›è¯¥åº—é“ºæœåŠ¡çš„æ ¡å›­
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusByStore(Store store) {
@@ -67,7 +67,7 @@ public class CampusDAO extends DAO {
 	}
 	
 	/**
-	 * ÎªµêÆÌÌí¼Ó·şÎñµÄĞ£Ô°
+	 * ä¸ºåº—é“ºæ·»åŠ æœåŠ¡çš„æ ¡å›­
 	 */
 	public void addCampusStore(Campus campus, Store store, Long priority) {
 		CampusStore campusStore = new CampusStore(campus, store, priority);
@@ -76,7 +76,7 @@ public class CampusDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıµêÆÌ·şÎñµÄĞ£Ô°
+	 * åˆ é™¤åº—é“ºæœåŠ¡çš„æ ¡å›­
 	 */
 	public void removeCampusStore(Campus campus, Store store) {
 		CampusStore campusStore = new CampusStore(campus, store, 0L);
@@ -86,7 +86,7 @@ public class CampusDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØµêÆÌ·şÎñµÄĞ£Ô°
+	 * è¿”å›åº—é“ºæœåŠ¡çš„æ ¡å›­
 	 */
 	public CampusStore getCampusStore(Campus campus, Store store) {
 		Session session = getSession();
@@ -98,7 +98,7 @@ public class CampusDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓĞ£Ô°
+	 * æ·»åŠ æ ¡å›­
 	 */
 	public Long addCampus(Administrator administrator, City city, String name, String description) {
 		Campus campus = new Campus(name, description, city, administrator);

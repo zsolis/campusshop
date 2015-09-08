@@ -14,7 +14,7 @@ public class CommentDAO extends DAO{
 	
 	/**
 	 * @return
-	 * »ñµÃCommentMap
+	 * è·å¾—CommentMap
 	 */
 	public Map<String, Object> getCommentMapByComment(Comment comment) {
 		Map<String, Object> commentMap = new HashMap<String, Object>();
@@ -30,7 +30,7 @@ public class CommentDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»ØÆÀÂÛ
+	 * æ ¹æ®IDè¿”å›è¯„è®º
 	 */
 	public Comment getCommentById(Long commentId) {
 		Session session = getSession();
@@ -39,7 +39,7 @@ public class CommentDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İÉÌÆ··µ»ØÆÀÂÛÊıÁ¿
+	 * æ ¹æ®å•†å“è¿”å›è¯„è®ºæ•°é‡
 	 */
 	public int getCommentCountByItem(Item item) {
 		Session session = getSession();
@@ -51,7 +51,7 @@ public class CommentDAO extends DAO{
 	/**
 	 * @param page
 	 * @return
-	 * ·µ»ØÉÌÆ·µÄÆÀÂÛ£¬°´ÆÀÂÛÊ±¼äÅÅĞò
+	 * è¿”å›å•†å“çš„è¯„è®ºï¼ŒæŒ‰è¯„è®ºæ—¶é—´æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Comment> getCommentsByItemOrderedByDate(Item item, CommentStatus status, int page) {
@@ -74,7 +74,7 @@ public class CommentDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İµêÆÌ»ñµÃÆÀÂÛ£¬°´Ê±¼ä½µĞòÅÅÁĞ
+	 * æ ¹æ®åº—é“ºè·å¾—è¯„è®ºï¼ŒæŒ‰æ—¶é—´é™åºæ’åˆ—
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Comment> getCommentsByStoreOrderedByDateDesc(Store store, CommentStatus status, int page) {
@@ -97,7 +97,7 @@ public class CommentDAO extends DAO{
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÆÀÂÛ
+	 * æ·»åŠ è¯„è®º
 	 */
 	public Long addComment(User user, Item item, Order order, String content) {
 		Comment comment = new Comment(user, item, order, content);

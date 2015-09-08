@@ -47,7 +47,7 @@ public class FeedbackController {
 			return ResponseStatusHelper.getErrorResponse("sesstionToken");
 		}
 		if (feedbackService.addFeedback(userId, campusId, content) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -62,7 +62,7 @@ public class FeedbackController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (feedbackService.addFeedbackResponse(feedbackId, administratorId, content) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}

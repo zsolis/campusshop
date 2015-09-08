@@ -31,7 +31,7 @@ public class CampusRegionController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (campusRegionService.addCampusRegion(campusId, jsonMap.get("name"), jsonMap.get("description")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -46,7 +46,7 @@ public class CampusRegionController {
 		}
 		Map<String, String> result = campusRegionService.setCampusRegion(campusRegionId, jsonMap.get("name"), jsonMap.get("description"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -60,7 +60,7 @@ public class CampusRegionController {
 		}
 		Map<String, String> result = campusRegionService.removeCampusRegion(campusRegionId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}

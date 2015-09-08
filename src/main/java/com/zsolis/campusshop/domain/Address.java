@@ -15,7 +15,7 @@ public class Address {
 	@JoinColumn(name = "CAMPUS_ID", nullable = false)
 	private Campus campus;
 	/**
-	 * 可为null，null值为其他
+	 * 鍙负null锛宯ull鍊间负鍏朵粬
 	 */
 	@ManyToOne
 	@JoinColumn(name = "CAMPUSREGION_ID")
@@ -86,7 +86,7 @@ public class Address {
 	
 	/**
 	 * @return
-	 * 返回拼接好的完整地址
+	 * 杩斿洖鎷兼帴濂界殑瀹屾暣鍦板潃
 	 */
 	public String getFinalAddress() {
 		String finalAddress = campus.getName() + " ";

@@ -49,7 +49,7 @@ public class StoreController {
 		}
 		Map<String, String> result = storeService.addUserFavoriteStore(userId, storeId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -64,7 +64,7 @@ public class StoreController {
 		}
 		Map<String, String> result = storeService.removeUserFavoriteStore(userId, storeId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -73,7 +73,7 @@ public class StoreController {
 	@ResponseBody
 	public Map<String, String> addStore(@RequestBody Map<String, String> jsonMap) {
 		if (storeService.addStore(jsonMap.get("account"), jsonMap.get("password"), jsonMap.get("name"), jsonMap.get("address"), jsonMap.get("phoneNumber")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -84,7 +84,7 @@ public class StoreController {
 			@PathVariable("passwordAfterSalt") String passwordAfterSalt) {
 		Map<String, String> result = storeService.checkLogin(account, passwordAfterSalt);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("¶ÁÈ¡´íÎó");
+			return ResponseStatusHelper.getErrorResponse("è¯»å–é”™è¯¯");
 		}
 		return result;
 	}
@@ -138,11 +138,11 @@ public class StoreController {
 		if (storeService.checkPassword(storeId, passwordAfterSalt)) {
 			Map<String, String> result = storeService.setPassword(storeId, password);
 			if (result == null) {
-				return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+				return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 			}
 			return result;
 		}
-		return ResponseStatusHelper.getErrorResponse("password´íÎó");
+		return ResponseStatusHelper.getErrorResponse("passwordé”™è¯¯");
 	}
 	
 	@RequestMapping(value = "/setstore/{storeId}/{sessionToken}", method = RequestMethod.POST, produces = "application/json")
@@ -153,7 +153,7 @@ public class StoreController {
 		Map<String, String> result = storeService.setStore(storeId, (String)jsonMap.get("account"), (String)jsonMap.get("password"), (String)jsonMap.get("name"), 
 				(String)jsonMap.get("address"), (String)jsonMap.get("phoneNumber"), (Float)jsonMap.get("minimumAmount"), (Float)jsonMap.get("deliveryFee"), (String)jsonMap.get("imagePath"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

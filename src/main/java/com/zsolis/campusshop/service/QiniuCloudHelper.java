@@ -9,7 +9,7 @@ public class QiniuCloudHelper {
 	private Auth auth;
 	
 	public QiniuCloudHelper() {
-		//ÌîĞ´ÆßÅ£ÔÆµÄÕËºÅÃÜÂë
+		//å¡«å†™ä¸ƒç‰›äº‘çš„è´¦å·å¯†ç 
 		auth = Auth.create("", "");
 	}
 	

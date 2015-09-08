@@ -14,7 +14,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İItem·µ»ØitemMap£¬²»·ÃÎÊÊı¾İ¿â
+	 * æ ¹æ®Itemè¿”å›itemMapï¼Œä¸è®¿é—®æ•°æ®åº“
 	 */
 	public Map<String, Object> getItemMapByItem(Item item) {
 		Map<String, Object> itemMap = new HashMap<String, Object>();
@@ -49,7 +49,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»ØÉÌÆ·
+	 * æ ¹æ®IDè¿”å›å•†å“
 	 */
 	public Item getItemById(Long itemId) {
 		Session session = getSession();
@@ -59,7 +59,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(u.item.id as itemId, u.item.name as itemName, u.item.presentPrice as itemPrice, u.quantity as quantity, u.date as date)
-	 * ÒÀ¾İµêÆÌ·µ»ØÓÃ»§¹ºÎï³µÉÌÆ·
+	 * ä¾æ®åº—é“ºè¿”å›ç”¨æˆ·è´­ç‰©è½¦å•†å“
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getUserCartItemsByStore(User user, Store store) {
@@ -73,7 +73,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>
 	 * new map(o.item.id as itemId, o.item.name as itemName, o.item.presentPrice as itemCurrentPrice, o.item.date as itemCurrentDate, o.item.mainImage.path as itemImagePath, o.quantity as quantity, o.itemPrice as itemOldPrice, o.itemDate as itemOldDate)
-	 * ·µ»Ø¸Ã¶©µ¥µÄÉÌÆ·ÁĞ±í£¬Ã»ÓĞ°´ÉÌÆ·×´Ì¬É¸Ñ¡
+	 * è¿”å›è¯¥è®¢å•çš„å•†å“åˆ—è¡¨ï¼Œæ²¡æœ‰æŒ‰å•†å“çŠ¶æ€ç­›é€‰
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByOrder(Order order) {
@@ -86,7 +86,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØµêÆÌÖĞÖ¸¶¨ÀàĞÍµÄÉÌÆ·£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›åº—é“ºä¸­æŒ‡å®šç±»å‹çš„å•†å“ï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByTypeStoreOrdered(String itemTypeString, Store store, String orderType, ItemStatus status, int page) {
@@ -118,7 +118,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØµêÆÌÖĞ¸Ã·ÖÀàµÄÉÌÆ·£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›åº—é“ºä¸­è¯¥åˆ†ç±»çš„å•†å“ï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByCategoryStoreOrdered(Category category, Store store, String orderType, ItemStatus status, int page) {
@@ -152,7 +152,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØµêÆÌÖĞÈ«²¿ÉÌÆ·£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›åº—é“ºä¸­å…¨éƒ¨å•†å“ï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByStoreOrdered(Store store, String orderType, ItemStatus status, int page) {
@@ -184,7 +184,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØµêÆÌËÑË÷µÄÉÌÆ·½á¹û£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›åº—é“ºæœç´¢çš„å•†å“ç»“æœï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByStoreSearchOrdered(Store store, String searchString, String orderType, ItemStatus status, int page) {
@@ -216,7 +216,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØĞ£Ô°ÖĞ¸Ã·ÖÀàµÄÉÌÆ·£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›æ ¡å›­ä¸­è¯¥åˆ†ç±»çš„å•†å“ï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByCategoryCampusOrdered(Category category, Campus campus, String orderType, int page) {
@@ -240,7 +240,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØĞ£Ô°ÖĞÈ«²¿ÉÌÆ·£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›æ ¡å›­ä¸­å…¨éƒ¨å•†å“ï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByCampusOrdered(Campus campus, String orderType, int page) {
@@ -263,7 +263,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(i.id as itemId, i.name as itemName, i.presentPrice as itemPrice, i.mainImage.path as itemImage, i.store.id as storeId, i.store.name as storeName)
-	 * ·µ»ØĞ£Ô°ËÑË÷µÄÉÌÆ·½á¹û£¬°´Ö¸¶¨·½Ê½ÅÅĞò
+	 * è¿”å›æ ¡å›­æœç´¢çš„å•†å“ç»“æœï¼ŒæŒ‰æŒ‡å®šæ–¹å¼æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getItemsByCampusSearchOrdered(Campus campus, String searchString, String orderType, int page) {
@@ -286,7 +286,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(c.item.id as itemId, c.item.name as itemName, c.item.presentPrice as itemPrice, c.item.mainImage.path as itemImage, c.item.store.id as storeId, c.item.store.name as storeName)
-	 * ·µ»ØĞ£Ô°ÍÆ¼öµÄÉÌÆ·£¬°´ÓÅÏÈ¼¶ÅÅĞò
+	 * è¿”å›æ ¡å›­æ¨èçš„å•†å“ï¼ŒæŒ‰ä¼˜å…ˆçº§æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusRecommendItemsOrderedByPriority(Campus campus, ItemStatus status, int page) {
@@ -311,7 +311,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(s.item.id as itemId, s.item.name as itemName, s.item.presentPrice as itemPrice, s.item.mainImage.path as itemImage, s.item.store.id as storeId, s.item.store.name as storeName)
-	 * ·µ»ØµêÆÌÍÆ¼öµÄÉÌÆ·£¬°´ÓÅÏÈ¼¶ÅÅĞò
+	 * è¿”å›åº—é“ºæ¨èçš„å•†å“ï¼ŒæŒ‰ä¼˜å…ˆçº§æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getStoreRecommendItemsOrderedByPriority(Store store, ItemStatus status, int page) {
@@ -335,7 +335,7 @@ public class ItemDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(u.item.id as itemId, u.item.name as itemName, u.item.presentPrice as itemPrice, u.item.mainImage.path as itemImage, u.store.name as storeName)
-	 * ·µ»ØÓÃ»§ÊÕ²ØµÄÉÌÆ·£¬°´ÊÕ²ØÊ±¼äÅÅĞò
+	 * è¿”å›ç”¨æˆ·æ”¶è—çš„å•†å“ï¼ŒæŒ‰æ”¶è—æ—¶é—´æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getUserFavoriteItemsOrderedByDate(User user, int page) {
@@ -348,7 +348,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * Ìí¼ÓÓÃ»§¹ºÎï³µÉÌÆ·
+	 * æ·»åŠ ç”¨æˆ·è´­ç‰©è½¦å•†å“
 	 */
 	public void addUserCartItem(User user, Item item) {
 		UserCartItem userCartItem = new UserCartItem(user, item, 1L);
@@ -357,7 +357,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıÓÃ»§¹ºÎï³µÉÌÆ·
+	 * åˆ é™¤ç”¨æˆ·è´­ç‰©è½¦å•†å“
 	 */
 	public void removeUserCartItem(User user, Item item) {
 		UserCartItem userCartItem = new UserCartItem(user, item, 1L);
@@ -366,7 +366,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * Ìí¼ÓÓÃ»§ÊÕ²ØÉÌÆ·
+	 * æ·»åŠ ç”¨æˆ·æ”¶è—å•†å“
 	 */
 	public void addUserFavoriteItem(User user, Item item) {
 		UserFavoriteItem userFavoriteItem = new UserFavoriteItem(user, item);
@@ -375,7 +375,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıÓÃ»§ÊÕ²ØÉÌÆ·
+	 * åˆ é™¤ç”¨æˆ·æ”¶è—å•†å“
 	 */
 	public void removeUserFavoriteItem(User user, Item item) {
 		UserFavoriteItem userFavoriteItem = new UserFavoriteItem(user, item);
@@ -385,7 +385,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÆÕÍ¨ÉÌÆ·£¬·µ»ØID
+	 * æ·»åŠ æ™®é€šå•†å“ï¼Œè¿”å›ID
 	 */
 	public Long addCommonItem(String name, String barcode, String brief, String detail, Long stock, Float presentPrice, Category category, Store store) {
 		Session session = getSession();
@@ -395,7 +395,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼Ó´ÙÏúÉÌÆ·£¬·µ»ØID
+	 * æ·»åŠ ä¿ƒé”€å•†å“ï¼Œè¿”å›ID
 	 */
 	public Long addPromotionItem(String name, String barcode, String brief, String detail, Long stock, Float presentPrice, Category category, Store store, Long limit, Float originalPrice) {
 		Session session = getSession();
@@ -405,7 +405,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÍÅ¹ºÉÌÆ·£¬·µ»ØID
+	 * æ·»åŠ å›¢è´­å•†å“ï¼Œè¿”å›ID
 	 */
 	public Long addGroupItem(String name, String barcode, String brief, String detail, Long stock, Float presentPrice, Category category, Store store, Float originalPrice) {
 		Session session = getSession();
@@ -414,7 +414,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * Ìí¼ÓÉÌ¼ÒÍÆ¼öÉÌÆ·
+	 * æ·»åŠ å•†å®¶æ¨èå•†å“
 	 */
 	public void addStoreRecommendItem(Store store, Item item, Long priority) {
 		Session session = getSession();
@@ -423,7 +423,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıÉÌ¼ÒÍÆ¼öÉÌÆ·
+	 * åˆ é™¤å•†å®¶æ¨èå•†å“
 	 */
 	public void removeStoreRecommendItem(Store store, Item item) {
 		Session session = getSession();
@@ -433,7 +433,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØÉÌ¼ÒÍÆ¼öµÄÉÌÆ·
+	 * è¿”å›å•†å®¶æ¨èçš„å•†å“
 	 */
 	public StoreRecommendItem getStoreRecommendItem(Store store, Item item) {
 		Session session = getSession();
@@ -444,7 +444,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * Ìí¼ÓĞ£Ô°ÍÆ¼öÉÌÆ·
+	 * æ·»åŠ æ ¡å›­æ¨èå•†å“
 	 */
 	public void addCampusRecommendItem(Campus campus, Item item, Long priority) {
 		Session session = getSession();
@@ -453,7 +453,7 @@ public class ItemDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıĞ£Ô°ÍÆ¼öÉÌÆ·
+	 * åˆ é™¤æ ¡å›­æ¨èå•†å“
 	 */
 	public void removeCampusRecommendItem(Campus campus, Item item) {
 		Session session = getSession();
@@ -463,7 +463,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØĞ£Ô°ÍÆ¼öµÄÉÌÆ·
+	 * è¿”å›æ ¡å›­æ¨èçš„å•†å“
 	 */
 	public CampusRecommendItem getCampusRecommendItem(Campus campus, Item item) {
 		Session session = getSession();
@@ -475,7 +475,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ½«ÉÌÆ·ÀàĞÍ×ª»»ÎªÆÕÍ¨
+	 * å°†å•†å“ç±»å‹è½¬æ¢ä¸ºæ™®é€š
 	 */
 	public int switchCommonItem(Long itemId) {
 		Session session = getSession();
@@ -486,7 +486,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ½«ÉÌÆ·ÀàĞÍ×ª»»ÎªÍÅ¹º
+	 * å°†å•†å“ç±»å‹è½¬æ¢ä¸ºå›¢è´­
 	 */
 	public int switchGroupItem(Long itemId, Float originalPrice) {
 		Session session = getSession();
@@ -498,7 +498,7 @@ public class ItemDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ½«ÉÌÆ·ÀàĞÍ×ª»»Îª´ÙÏú
+	 * å°†å•†å“ç±»å‹è½¬æ¢ä¸ºä¿ƒé”€
 	 */
 	public int switchPromotionItem(Long itemId, Float originalPrice, Long limitQuantity) {
 		Session session = getSession();

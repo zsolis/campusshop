@@ -42,7 +42,7 @@ public class CommentController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (commentService.addComment(userId, itemId, orderId, content) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -56,7 +56,7 @@ public class CommentController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (commentService.addCommentResponse(commentId, content) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -70,7 +70,7 @@ public class CommentController {
 		}
 		Map<String, String> result = commentService.changeCommentStatus(commentId, CommentStatus.reported);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -85,11 +85,11 @@ public class CommentController {
 		}
 		CommentStatus status = CommentStatus.valueOf(statusString);
 		if (status == null) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		Map<String, String> result = commentService.changeCommentStatus(commentId, status);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

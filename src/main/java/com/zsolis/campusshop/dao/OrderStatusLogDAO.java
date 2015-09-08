@@ -14,7 +14,7 @@ public class OrderStatusLogDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ·µ»Ø¸Ã¶©µ¥µÄ×´Ì¬¸Ä±ä¼ÇÂ¼
+	 * è¿”å›è¯¥è®¢å•çš„çŠ¶æ€æ”¹å˜è®°å½•
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getOrderStatusLogs(Order order) {
@@ -26,7 +26,7 @@ public class OrderStatusLogDAO extends DAO{
 	
 	/**
 	 * @return
-	 * Ìí¼Ó¶©µ¥×´Ì¬±ä»¯ÈÕÖ¾
+	 * æ·»åŠ è®¢å•çŠ¶æ€å˜åŒ–æ—¥å¿—
 	 */
 	public Long addOrderStatusLog(Order order, OrderStatus status) {
 		OrderStatusLog orderStatusLog = new OrderStatusLog(order, status);

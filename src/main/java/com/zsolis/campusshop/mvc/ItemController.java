@@ -141,7 +141,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.addUserCartItem(userId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -156,7 +156,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.removeUserCartItem(userId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -171,7 +171,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.addUserFavoriteItem(userId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -186,7 +186,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.removeUserFavoriteItem(userId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -202,7 +202,7 @@ public class ItemController {
 		if (itemService.addItem((String)jsonMap.get("itemTypeString"), (Long)jsonMap.get("categoryId"), storeId, (String)jsonMap.get("name"), 
 				(Float)jsonMap.get("presentPrice"), (Long)jsonMap.get("stock"), (String)jsonMap.get("brief"), (String)jsonMap.get("detail"), 
 				(String)jsonMap.get("barcode"), (Float)jsonMap.get("originalPrice"), (Long)jsonMap.get("limit")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -218,7 +218,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.addStoreRecommendItem(storeId, itemId, priority);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -233,7 +233,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.removeStoreRecommendItem(storeId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -249,7 +249,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.setStoreRecommendItem(storeId, itemId, priority);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -263,7 +263,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.removeItem(itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -280,7 +280,7 @@ public class ItemController {
 				(Float)jsonMap.get("presentPrice"), (Long)jsonMap.get("stock"), (String)jsonMap.get("brief"), (String)jsonMap.get("detail"), 
 				(String)jsonMap.get("barcode"), ItemStatus.valueOf((String)jsonMap.get("statusString")), (Float)jsonMap.get("originalPrice"), (Long)jsonMap.get("limit"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -295,7 +295,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.addItemMainImage(itemId, path);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -310,7 +310,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.setItemMainImage(itemId, path);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -326,7 +326,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.addCampusRecommendItem(campusId, itemId, priority);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -342,7 +342,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.setCampusRecommendItem(campusId, itemId, priority);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -357,7 +357,7 @@ public class ItemController {
 		}
 		Map<String, String> result = itemService.removeCampusRecommendItem(campusId, itemId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

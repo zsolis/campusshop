@@ -27,7 +27,7 @@ public class CityService {
 	public Map<String, String> setCity(Long cityId, String name, String province) {
 		City city = cityDAO.getCityById(cityId);
 		if (city == null) {
-			return ResponseStatusHelper.getErrorResponse("cityId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("cityIdé”™è¯¯");
 		}
 		if (name != null) {
 			city.setName(name);

@@ -14,7 +14,7 @@ public class FeedbackDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 根据Feedback返回feedbackMap,不访问数据库
+	 * 鏍规嵁Feedback杩斿洖feedbackMap,涓嶈闂暟鎹簱
 	 */
 	public Map<String, Object> getFeedbackMapByFeedback(Feedback feedback) {
 		Map<String, Object> feedbackMap = new HashMap<String, Object>();
@@ -28,7 +28,7 @@ public class FeedbackDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 根据用户返回反馈列表
+	 * 鏍规嵁鐢ㄦ埛杩斿洖鍙嶉鍒楄〃
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Feedback> getFeedbacksByUserCampus(User user, Campus campus) {
@@ -41,7 +41,7 @@ public class FeedbackDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 根据校园返回反馈列表
+	 * 鏍规嵁鏍″洯杩斿洖鍙嶉鍒楄〃
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Feedback> getFeedbacksByCampus(Campus campus, int page) {
@@ -55,7 +55,7 @@ public class FeedbackDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 添加反馈，返回ID
+	 * 娣诲姞鍙嶉锛岃繑鍥濱D
 	 */
 	public Long addFeedback(User user, Campus campus, String content) {
 		Feedback feedback = new Feedback();

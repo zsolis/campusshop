@@ -96,7 +96,7 @@ public class OrderService {
 		Store store = storeDAO.getStoreById(storeId);
 		User user = userDAO.getUserById(userId);
 		if(!storeDAO.checkCampusArrival(address.getCampus(), store)){
-			return ResponseStatusHelper.getErrorResponse("±¾µê²»¿ÉËÍ´ï¸ÃµØÖ·");
+			return ResponseStatusHelper.getErrorResponse("æœ¬åº—ä¸å¯é€è¾¾è¯¥åœ°å€");
 		}
 		Set<Map<String, Object>> items = new HashSet<Map<String, Object>>();
 		Float totalPrice = 0.0F;
@@ -104,17 +104,17 @@ public class OrderService {
 		for(Map<String, Long> itemIdMap : itemIds) {
 			Item item = itemDAO.getItemById(itemIdMap.get("itemId"));
 			if(item.getStore().getId() != storeId) {
-				return ResponseStatusHelper.getErrorResponse("·Ç±¾µêÉÌÆ·");
+				return ResponseStatusHelper.getErrorResponse("éæœ¬åº—å•†å“");
 			}
 			Long quantity = itemIdMap.get("quantity");
 			if (item instanceof PromotionItem) {
 				PromotionItem promotionItem = (PromotionItem)item;
 				if (promotionItem.getLimit() < quantity) {
-					return ResponseStatusHelper.getErrorResponse("³¬¹ı´ÙÏúÏŞ¹ºÊıÁ¿");
+					return ResponseStatusHelper.getErrorResponse("è¶…è¿‡ä¿ƒé”€é™è´­æ•°é‡");
 				}
 			}
 			if (item.getStock() < quantity) {
-				return ResponseStatusHelper.getErrorResponse("³¬¹ı¿â´æÊıÁ¿");
+				return ResponseStatusHelper.getErrorResponse("è¶…è¿‡åº“å­˜æ•°é‡");
 			}
 			if (fromCart) {
 				itemDAO.removeUserCartItem(user, item);
@@ -147,7 +147,7 @@ public class OrderService {
 			order.setId(orderId);
 			orderStatusLogDAO.addOrderStatusLog(order, OrderStatus.beforePay);
 		} else {
-			return ResponseStatusHelper.getErrorResponse("orderType´íÎó");
+			return ResponseStatusHelper.getErrorResponse("orderTypeé”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -155,10 +155,10 @@ public class OrderService {
 	public Map<String, String> changeOrderStatus(Long orderId, OrderStatus status) {
 		Order order = orderDAO.getOrderById(orderId);
 		if(order == null) {
-			return ResponseStatusHelper.getErrorResponse("orderId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("orderIdé”™è¯¯");
 		}
 		if(order.getStatus().ordinal() >= status.ordinal()) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		if(status == OrderStatus.beforeAccept) {
 			jedisStoreOrderDAO.addStoreOrder(order.getStore().getId());

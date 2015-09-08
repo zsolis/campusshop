@@ -38,7 +38,7 @@ public class AdministratorController {
 	@ResponseBody
 	public Map<String, String> addCampusAdministrator(@RequestBody Map<String, String> jsonMap) {
 		if (administratorService.addCampusAdministrator(jsonMap.get("account"), jsonMap.get("password"), jsonMap.get("name"), jsonMap.get("phoneNumber")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -49,7 +49,7 @@ public class AdministratorController {
 			@PathVariable("passwordAfterSalt") String passwordAfterSalt) {
 		Map<String, String> result = administratorService.checkLogin(account, passwordAfterSalt);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("¶ÁÈ¡´íÎó");
+			return ResponseStatusHelper.getErrorResponse("è¯»å–é”™è¯¯");
 		}
 		return result;
 	}
@@ -78,11 +78,11 @@ public class AdministratorController {
 		if (administratorService.checkPassword(administratorId, passwordAfterSalt)) {
 			Map<String, String> result = administratorService.setPassword(administratorId, password);
 			if (result == null) {
-				return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+				return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 			}
 			return result;
 		}
-		return ResponseStatusHelper.getErrorResponse("password´íÎó");
+		return ResponseStatusHelper.getErrorResponse("passwordé”™è¯¯");
 	}
 	
 	@RequestMapping(value = "/administratorsetpasswordbysuper/{administratorId}/{password}/{sessionToken}", method = RequestMethod.GET, produces = "application/json")
@@ -95,7 +95,7 @@ public class AdministratorController {
 		}
 		Map<String, String> result = administratorService.setPassword(administratorId, password);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -110,7 +110,7 @@ public class AdministratorController {
 		}
 		Map<String, String> result = administratorService.setCampusAdministrator(administratorId, jsonMap.get("account"), jsonMap.get("name"), jsonMap.get("phoneNumber"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

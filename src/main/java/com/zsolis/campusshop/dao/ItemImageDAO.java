@@ -13,7 +13,7 @@ public class ItemImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»ØÉÌÆ·Í¼Æ¬
+	 * æ ¹æ®IDè¿”å›å•†å“å›¾ç‰‡
 	 */
 	public ItemImage getItemImageById(Long itemImageId) {
 		Session session = getSession();
@@ -22,7 +22,7 @@ public class ItemImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ·µ»ØÉÌÆ·µÄËùÓĞÍ¼Æ¬
+	 * è¿”å›å•†å“çš„æ‰€æœ‰å›¾ç‰‡
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getImagesByItemOrderedByPriority(Item item) {
@@ -34,7 +34,7 @@ public class ItemImageDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ±£´æÉÌÆ·Í¼Æ¬
+	 * ä¿å­˜å•†å“å›¾ç‰‡
 	 */
 	public Long addItemImage(String path, String barcode, String description) {
 		ItemImage itemImage = new ItemImage(path, barcode, description);
@@ -43,7 +43,7 @@ public class ItemImageDAO extends DAO{
 	}
 	
 	/**
-	 * É¾³ıÉÌÆ·Í¼Æ¬
+	 * åˆ é™¤å•†å“å›¾ç‰‡
 	 */
 	public void removeItemImage(ItemImage itemImage) {
 		Session session = getSession();
@@ -51,7 +51,7 @@ public class ItemImageDAO extends DAO{
 	}
 	
 	/**
-	 * Ìí¼ÓÉÌÆ·ÏêÇéÍ¼
+	 * æ·»åŠ å•†å“è¯¦æƒ…å›¾
 	 */
 	public void addItemDetailImage(Item item, ItemImage image, Long priority) {
 		ItemDetailImage itemDetailImage = new ItemDetailImage(item, image, priority);
@@ -60,7 +60,7 @@ public class ItemImageDAO extends DAO{
 	}
 	
 	/**
-	 * É¾³ıÉÌÆ·ÏêÇéÍ¼
+	 * åˆ é™¤å•†å“è¯¦æƒ…å›¾
 	 */
 	public void removeItemDetailImage(Item item, ItemImage image) {
 		ItemDetailImage itemDetailImage = new ItemDetailImage(item, image, 0L);

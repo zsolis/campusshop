@@ -25,7 +25,7 @@ public class ItemImageController {
 		}
 		Map<String, String> result = itemImageService.addItemDetailImage(itemId, (String)jsonMap.get("path"), (Long)jsonMap.get("priority"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -40,7 +40,7 @@ public class ItemImageController {
 		}
 		Map<String, String> result = itemImageService.setItemDetailImage(itemImageId, path);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -55,7 +55,7 @@ public class ItemImageController {
 		}
 		Map<String, String> result = itemImageService.removeItemDetailImage(itemId, itemImageId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

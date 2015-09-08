@@ -33,7 +33,7 @@ public class CategoryService {
 	public Map<String, String> setCategory(Long categoryId, String name) {
 		Category category = categoryDAO.getCategoryById(categoryId);
 		if (category == null) {
-			return ResponseStatusHelper.getErrorResponse("categoryId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("categoryIdé”™è¯¯");
 		}
 		category.setName(name);
 		return ResponseStatusHelper.getOkResponse();

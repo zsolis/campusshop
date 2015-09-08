@@ -44,7 +44,7 @@ public class AddressController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (addressService.addAddress(userId, (Long)jsonMap.get("campusId"), (Long)jsonMap.get("campusRegionId"), (String)jsonMap.get("detail"), (String)jsonMap.get("phoneNumber"), (String)jsonMap.get("name")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -59,7 +59,7 @@ public class AddressController {
 		}
 		Map<String, String> result = addressService.setAddress(addressId, (Long)jsonMap.get("campusId"), (Long)jsonMap.get("campusRegionId"), (String)jsonMap.get("detail"), (String)jsonMap.get("phoneNumber"), (String)jsonMap.get("name"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -73,7 +73,7 @@ public class AddressController {
 		}
 		Map<String, String> result = addressService.removeAddress(addressId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

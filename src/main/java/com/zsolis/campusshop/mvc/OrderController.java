@@ -85,15 +85,15 @@ public class OrderController {
 		} else if (source.equals("direct")){
 			fromCart = false;
 		} else {
-			return ResponseStatusHelper.getErrorResponse("source´íÎó");
+			return ResponseStatusHelper.getErrorResponse("sourceé”™è¯¯");
 		}
 		if (jsonMap.get("itemsString") == null) {
-			return ResponseStatusHelper.getErrorResponse("itemsString´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemsStringé”™è¯¯");
 		}
 		Set<Map<String, Long>> itemIds = parseItemIds((String)jsonMap.get("itemsString"));
 		Map<String, String> result = orderService.addOrder((String)jsonMap.get("orderType"), fromCart, userId, (Long)jsonMap.get("storeId"), (Long)jsonMap.get("addressId"), itemIds, (String)jsonMap.get("userNote"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -108,11 +108,11 @@ public class OrderController {
 		}
 		OrderStatus status = OrderStatus.valueOf(statusString);
 		if (status == null) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		Map<String, String> result = orderService.changeOrderStatus(orderId, status);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -130,7 +130,7 @@ public class OrderController {
 	/**
 	 * @param itemsString "11:1_14:3_67:1"
 	 * @return
-	 * ½âÎöÉÌÆ·ÓëÊıÁ¿¶ÔÓ¦µÄ×Ö·û´®
+	 * è§£æå•†å“ä¸æ•°é‡å¯¹åº”çš„å­—ç¬¦ä¸²
 	 */
 	private Set<Map<String, Long>> parseItemIds(String itemsString) {
 		Set<Map<String, Long>> itemIds = new HashSet<Map<String, Long>>();

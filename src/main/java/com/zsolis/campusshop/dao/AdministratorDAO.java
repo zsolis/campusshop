@@ -19,7 +19,7 @@ public class AdministratorDAO extends DAO {
 	/**
 	 * @param campusAdministrator
 	 * @return
-	 * ·µ»ØMap£¬Ó¦È·±£ÊäÈë¶ÔÏóÒÑ³Ö¾Ã»¯
+	 * è¿”å›Mapï¼Œåº”ç¡®ä¿è¾“å…¥å¯¹è±¡å·²æŒä¹…åŒ–
 	 */
 	public Map<String, Object> getCampusAdministratorMapByCampusAdministrator(CampusAdministrator administrator) {
 		Map<String, Object> administratorMap = new HashMap<String, Object>();
@@ -32,7 +32,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØĞ£Ô°¹ÜÀíÔ±ÁĞ±í
+	 * è¿”å›æ ¡å›­ç®¡ç†å‘˜åˆ—è¡¨
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCampusAdministrators() {
@@ -43,7 +43,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»Ø¹ÜÀíÔ±
+	 * æ ¹æ®IDè¿”å›ç®¡ç†å‘˜
 	 */
 	public Administrator getAdministratorById(Long administratorId) {
 		Session session = getSession();
@@ -52,7 +52,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İÕËºÅ·µ»Ø¹ÜÀíÔ±
+	 * æ ¹æ®è´¦å·è¿”å›ç®¡ç†å‘˜
 	 */
 	public Administrator getAdministratorByAccount(String account) {
 		Session session = getSession();
@@ -63,7 +63,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İauthToken·µ»Ø¹ÜÀíÔ±
+	 * æ ¹æ®authTokenè¿”å›ç®¡ç†å‘˜
 	 */
 	public Administrator getAdministratorByAuthToken(String authToken) {
 		Session session = getSession();
@@ -74,7 +74,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓĞ£Ô°¹ÜÀíÔ±£¬Ó¦È·±£accountÎ¨Ò»
+	 * æ·»åŠ æ ¡å›­ç®¡ç†å‘˜ï¼Œåº”ç¡®ä¿accountå”¯ä¸€
 	 */
 	public Long addCampusAdministrator(String account, String password, String name, String phoneNumber) {
 		CampusAdministrator campusAdministrator = new CampusAdministrator(account, password, name, phoneNumber);
@@ -87,7 +87,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼Ó³¬¼¶¹ÜÀíÔ±£¬Ó¦È·±£accountÎ¨Ò»
+	 * æ·»åŠ è¶…çº§ç®¡ç†å‘˜ï¼Œåº”ç¡®ä¿accountå”¯ä¸€
 	 */
 	public Long addSuperAdministrator(String account, String password, String name) {
 		SuperAdministrator administrator = new SuperAdministrator(account, password, name);
@@ -100,7 +100,7 @@ public class AdministratorDAO extends DAO {
 	
 	/**
 	 * @return
-	 * »ñµÃ³¬¼¶¹ÜÀíÔ±
+	 * è·å¾—è¶…çº§ç®¡ç†å‘˜
 	 */
 	public SuperAdministrator getSuperAdministrator() {
 		Session session = getSession();

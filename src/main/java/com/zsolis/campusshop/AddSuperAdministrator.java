@@ -16,7 +16,7 @@ public class AddSuperAdministrator {
 		Transaction transaction = session.beginTransaction();
 		String account = "superadmin";
 		String password = cryptUtil.encryptSHA1("hehuoren");
-		String name = "ϵͳ����Ա";
+		String name = "系统管理员";
 		SuperAdministrator administrator = new SuperAdministrator(account, password, name);
 		Long administratorId = (Long)session.save(administrator);
 		Long timestamp = new Date().getTime();

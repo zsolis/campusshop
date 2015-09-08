@@ -24,7 +24,7 @@ public class AddressService {
 	}
 	
 	public Map<String, Object> getUserDefaultAddress(Long userId) {
-		//³Ö¾Ã»¯user
+		//æŒä¹…åŒ–user
 		User user = userDAO.getUserById(userId);
 		return addressDAO.getUserDefaultAddress(user);
 	}
@@ -42,7 +42,7 @@ public class AddressService {
 	public Map<String, String> setAddress(Long addressId, Long campusId, Long campusRegionId, String detail, String phoneNumber, String name) {
 		Address address = addressDAO.getAddressById(addressId);
 		if (address == null) {
-			return ResponseStatusHelper.getErrorResponse("addressId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("addressIdé”™è¯¯");
 		}
 		if (campusId != null) {
 			Campus campus = new Campus();
@@ -69,7 +69,7 @@ public class AddressService {
 	public Map<String, String> removeAddress(Long addressId) {
 		Address address = addressDAO.getAddressById(addressId);
 		if (address == null) {
-			return ResponseStatusHelper.getErrorResponse("addressId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("addressIdé”™è¯¯");
 		}
 		address.setStatus(AddressStatus.deleted);
 		return ResponseStatusHelper.getOkResponse();

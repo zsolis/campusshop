@@ -36,7 +36,7 @@ public class CategoryController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (categoryService.addCategory(name) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -51,7 +51,7 @@ public class CategoryController {
 		}
 		Map<String, String> result = categoryService.setCategory(categoryId, name);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

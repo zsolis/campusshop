@@ -14,7 +14,7 @@ public class FeedbackResponseDAO extends DAO{
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(f.id as responseId, f.content as content, f.date as date, f.administrator.id as administratorId, f.adminstrator.name as administratorName)
-	 * 根据反馈返回反馈回复
+	 * 鏍规嵁鍙嶉杩斿洖鍙嶉鍥炲
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getFeedbackResponsesByFeedback(Feedback feedback) {
@@ -26,7 +26,7 @@ public class FeedbackResponseDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 添加反馈回复
+	 * 娣诲姞鍙嶉鍥炲
 	 */
 	public Long addFeedbackResponse(Feedback feedback, Administrator administrator, String content) {
 		FeedbackResponse feedbackResponse = new FeedbackResponse(content, feedback, administrator);

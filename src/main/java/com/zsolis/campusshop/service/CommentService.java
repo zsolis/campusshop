@@ -64,10 +64,10 @@ public class CommentService {
 	public Map<String, String> changeCommentStatus(Long commentId, CommentStatus status) {
 		Comment comment = commentDAO.getCommentById(commentId);
 		if (comment == null) {
-			return ResponseStatusHelper.getErrorResponse("commentId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("commentIdé”™è¯¯");
 		}
 		if(comment.getStatus() == status) {
-			return ResponseStatusHelper.getErrorResponse("status´íÎó");
+			return ResponseStatusHelper.getErrorResponse("statusé”™è¯¯");
 		}
 		comment.setStatus(status);
 		return ResponseStatusHelper.getOkResponse();

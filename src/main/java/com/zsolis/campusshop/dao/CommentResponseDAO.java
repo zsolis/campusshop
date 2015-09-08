@@ -14,7 +14,7 @@ public class CommentResponseDAO extends DAO{
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(c.id as id, c.content as content, c.date as date)
-	 * 根据评论返回评论回复
+	 * 鏍规嵁璇勮杩斿洖璇勮鍥炲
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getCommentResponses(Comment comment) {
@@ -26,7 +26,7 @@ public class CommentResponseDAO extends DAO{
 	
 	/**
 	 * @return
-	 * 添加评论反馈
+	 * 娣诲姞璇勮鍙嶉
 	 */
 	public Long addCommentResponse(Comment comment, String content) {
 		CommentResponse commentResponse = new CommentResponse(content, comment);

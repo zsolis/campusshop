@@ -13,7 +13,7 @@ public class CityDAO extends DAO {
 
 	/**
 	 * @return
-	 * 返回城市列表
+	 * 杩斿洖鍩庡競鍒楄〃
 	 */
 	@SuppressWarnings("unchecked")
 	public List<City> getCities() {
@@ -24,7 +24,7 @@ public class CityDAO extends DAO {
 	
 	/**
 	 * @return
-	 * 根据ID返回城市
+	 * 鏍规嵁ID杩斿洖鍩庡競
 	 */
 	public City getCityById(Long cityId) {
 		Session session = getSession();
@@ -33,7 +33,7 @@ public class CityDAO extends DAO {
 	
 	/**
 	 * @return
-	 * 添加城市
+	 * 娣诲姞鍩庡競
 	 */
 	public Long addCity(String name, String province) {
 		City city = new City(name, province);

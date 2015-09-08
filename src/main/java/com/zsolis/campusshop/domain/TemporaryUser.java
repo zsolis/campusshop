@@ -7,6 +7,6 @@ public class TemporaryUser extends User{
 	public TemporaryUser() {}
 	
 	public String getName() {
-		return "ÁÙÊ±ÓÃ»§£º" + super.getId();
+		return "ä¸´æ—¶ç”¨æˆ·ï¼š" + super.getId();
 	}
 }

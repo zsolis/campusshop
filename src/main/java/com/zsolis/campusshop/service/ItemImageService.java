@@ -20,7 +20,7 @@ public class ItemImageService {
 	public Map<String, String> addItemDetailImage(Long itemId, String path, Long priority) {
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemIdé”™è¯¯");
 		}
 		Long itemImageId = itemImageDAO.addItemImage(path, item.getBarcode(), item.getName());
 		ItemImage image = new ItemImage();
@@ -32,7 +32,7 @@ public class ItemImageService {
 	public Map<String, String> setItemDetailImage(Long itemImageId, String path) {
 		ItemImage itemImage = itemImageDAO.getItemImageById(itemImageId);
 		if (itemImage == null) {
-			return ResponseStatusHelper.getErrorResponse("itemImageId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemImageIdé”™è¯¯");
 		}
 		itemImage.setPath(path);
 		return ResponseStatusHelper.getOkResponse();

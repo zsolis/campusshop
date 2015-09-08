@@ -32,7 +32,7 @@ public class UserController {
 	public Map<String, String> sendVerifyCode(@PathVariable("phoneNumber") String phoneNumber) {
 		Map<String, String> result = userService.sendVerifyCode(phoneNumber);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -42,10 +42,10 @@ public class UserController {
 	public Map<String, String> addRegisteredUser(@PathVariable("campusId") Long campusId,
 			@RequestBody Map<String, String> jsonMap) {
 		if (!verifyHelper.verifyInput(jsonMap.get("phoneNumber"), jsonMap.get("verifyCode"))) {
-			return ResponseStatusHelper.getErrorResponse("verifyCode´íÎó");
+			return ResponseStatusHelper.getErrorResponse("verifyCodeé”™è¯¯");
 		}
 		if (userService.addRegisteredUser(jsonMap.get("phoneNumber"), jsonMap.get("password"), campusId) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -54,7 +54,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, String> addTemporaryUser(@PathVariable("campusId") Long campusId) {
 		if (userService.addTemporaryUser(campusId) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -68,11 +68,11 @@ public class UserController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (!verifyHelper.verifyInput(jsonMap.get("phoneNumber"), jsonMap.get("verifyCode"))) {
-			return ResponseStatusHelper.getErrorResponse("verifyCode´íÎó");
+			return ResponseStatusHelper.getErrorResponse("verifyCodeé”™è¯¯");
 		}
 		Map<String, String> result = userService.switchRegisteredUser(userId, jsonMap.get("phoneNumber"), jsonMap.get("password"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -83,7 +83,7 @@ public class UserController {
 			@PathVariable("passwordAfterSalt") String passwordAfterSalt) {
 		Map<String, String> result = userService.checkLogin(phoneNumber, passwordAfterSalt);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("¶ÁÈ¡´íÎó");
+			return ResponseStatusHelper.getErrorResponse("è¯»å–é”™è¯¯");
 		}
 		return result;
 	}
@@ -112,11 +112,11 @@ public class UserController {
 		if (userService.checkPassword(userId, passwordAfterSalt)) {
 			Map<String, String> result = userService.setPassword(userId, password);
 			if (result == null) {
-				return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+				return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 			}
 			return result;
 		}
-		return ResponseStatusHelper.getErrorResponse("password´íÎó");
+		return ResponseStatusHelper.getErrorResponse("passwordé”™è¯¯");
 	}
 	
 	@RequestMapping(value = "/usersetphoneNumber/{userId}/{phoneNumber}/{verifyCode}/{sessionToken}", method = RequestMethod.GET, produces = "application/json")
@@ -129,11 +129,11 @@ public class UserController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (!verifyHelper.verifyInput(phoneNumber, verifyCode)) {
-			return ResponseStatusHelper.getErrorResponse("verifyCode´íÎó");
+			return ResponseStatusHelper.getErrorResponse("verifyCodeé”™è¯¯");
 		}
 		Map<String, String> result = userService.setPhoneNumber(userId, phoneNumber);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ğ´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

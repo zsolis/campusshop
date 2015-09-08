@@ -79,7 +79,7 @@ public abstract class User {
 	
 	/**
 	 * @return
-	 * ·µ»ØÓÃ»§ÏÔÊ¾µÄÃû³Æ
+	 * è¿”å›ç”¨æˆ·æ˜¾ç¤ºçš„åç§°
 	 */
 	public abstract String getName();
 }

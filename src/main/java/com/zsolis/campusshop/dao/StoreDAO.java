@@ -19,7 +19,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İÉÌµê·µ»ØstoreMap
+	 * æ ¹æ®å•†åº—è¿”å›storeMap
 	 */
 	public Map<String, Object> getStoreMapByStore(Store store) {
 		Map<String, Object> storeMap = new HashMap<String, Object>();
@@ -38,7 +38,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»ØÉÌ¼Ò
+	 * æ ¹æ®IDè¿”å›å•†å®¶
 	 */
 	public Store getStoreById(Long storeId) {
 		Session session = getSession();
@@ -47,7 +47,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İÕËºÅ·µ»ØÉÌ¼Ò
+	 * æ ¹æ®è´¦å·è¿”å›å•†å®¶
 	 */
 	public Store getStoreByAccount(String account) {
 		Session session = getSession();
@@ -58,7 +58,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İauthToken·µ»ØÉÌ¼Ò
+	 * æ ¹æ®authTokenè¿”å›å•†å®¶
 	 */
 	public Store getStoreByAuthToken(String authToken) {
 		Session session = getSession();
@@ -70,7 +70,7 @@ public class StoreDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(c.store.id as id, c.store.name as name, c.store.description as description, c.store.imagePath as imagePath)
-	 * ·µ»Ø·şÎñ¸ÃĞ£Ô°µÄµêÆÌ£¬°´ÓÅÏÈ¼¶ÅÅĞò
+	 * è¿”å›æœåŠ¡è¯¥æ ¡å›­çš„åº—é“ºï¼ŒæŒ‰ä¼˜å…ˆçº§æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getStoresByCampusOrderedByPriority(Campus campus, CampusStatus status, int page) {
@@ -93,7 +93,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØÓÃ»§¹ºÎï³µÉÌÆ·ËùÊôµÄµêÆÌ
+	 * è¿”å›ç”¨æˆ·è´­ç‰©è½¦å•†å“æ‰€å±çš„åº—é“º
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Store> getUserCartItemStores(User user) {
@@ -106,7 +106,7 @@ public class StoreDAO extends DAO {
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(u.store.id as id, u.store.name as name, u.store.description as description, u.store.imagePath as imagePath)
-	 * ·µ»ØÓÃ»§ÊÕ²ØµÄµêÆÌ£¬°´ÊÕ²ØÊ±¼äÅÅĞò
+	 * è¿”å›ç”¨æˆ·æ”¶è—çš„åº—é“ºï¼ŒæŒ‰æ”¶è—æ—¶é—´æ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getUserFavoriteStoresOrderedByDate(User user, int page) {
@@ -119,7 +119,7 @@ public class StoreDAO extends DAO {
 	}
 	
 	/**
-	 * Ìí¼ÓÓÃ»§ÊÕ²ØµêÆÌ
+	 * æ·»åŠ ç”¨æˆ·æ”¶è—åº—é“º
 	 */
 	public void addUserFavoriteStore(User user, Store store) {
 		UserFavoriteStore userFavoriteStore = new UserFavoriteStore(user, store);
@@ -128,7 +128,7 @@ public class StoreDAO extends DAO {
 	}
 	
 	/**
-	 * É¾³ıÓÃ»§ÊÕ²ØµêÆÌ
+	 * åˆ é™¤ç”¨æˆ·æ”¶è—åº—é“º
 	 */
 	public void removeUserFavoriteStore(User user, Store store) {
 		UserFavoriteStore userFavoriteStore = new UserFavoriteStore(user, store);
@@ -138,7 +138,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ÅĞ¶ÏÉÌ¼ÒÄÜ·ñÎª¸ÃĞ£Ô°·şÎñ
+	 * åˆ¤æ–­å•†å®¶èƒ½å¦ä¸ºè¯¥æ ¡å›­æœåŠ¡
 	 */
 	public boolean checkCampusArrival(Campus campus, Store store) {
 		Session session = getSession();
@@ -154,7 +154,7 @@ public class StoreDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÉÌ¼Ò£¬±£Ö¤accountÎ¨Ò»
+	 * æ·»åŠ å•†å®¶ï¼Œä¿è¯accountå”¯ä¸€
 	 */
 	public Long addStore(String account, String password, String name, String address, String phoneNumber) {
 		Store store = new Store(account, password, phoneNumber, name, address);

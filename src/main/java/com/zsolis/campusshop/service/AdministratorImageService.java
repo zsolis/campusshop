@@ -43,7 +43,7 @@ public class AdministratorImageService {
 	public Map<String, String> setAdministratorImage(Long administratorImageId, String path) {
 		AdministratorImage administratorImage = administratorImageDAO.getAdministratorImageById(administratorImageId);
 		if (administratorImage == null) {
-			return ResponseStatusHelper.getErrorResponse("administratorImageId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("administratorImageIdé”™è¯¯");
 		}
 		administratorImage.setPath(path);
 		return ResponseStatusHelper.getOkResponse();
@@ -74,7 +74,7 @@ public class AdministratorImageService {
 		administratorImage.setId(administratorImageId);
 		CampusRecommendImage campusRecommendImage = administratorImageDAO.getCampusRecommendImage(campus, administratorImage);
 		if (campusRecommendImage == null) {
-			return ResponseStatusHelper.getErrorResponse("input´íÎó");
+			return ResponseStatusHelper.getErrorResponse("inputé”™è¯¯");
 		}
 		if (location != null) {
 			campusRecommendImage.setLocation(location);

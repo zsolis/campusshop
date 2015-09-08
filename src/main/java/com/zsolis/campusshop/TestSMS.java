@@ -7,7 +7,7 @@ public class TestSMS {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SMSUtil smsUtil = new SMSUtil();
-		smsUtil.sendSMS("15100200868", "ÕâÊÇÒ»¸ö²âÊÔÅ¶551022£¬from ÕÂÑô¡¾¹ºÁËÃ´¡¿");
+		smsUtil.sendSMS("15100200868", "è¿™æ˜¯ä¸€ä¸ªæµ‹è¯•å“¦551022ï¼Œfrom ç« é˜³ã€è´­äº†ä¹ˆã€‘");
 	}
 
 }

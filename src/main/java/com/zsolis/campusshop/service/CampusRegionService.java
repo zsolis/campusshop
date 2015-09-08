@@ -31,7 +31,7 @@ public class CampusRegionService {
 	public Map<String, String> setCampusRegion(Long campusRegionId, String name, String description) {
 		CampusRegion campusRegion = campusRegionDAO.getCampusRegionById(campusRegionId);
 		if(campusRegion == null) {
-			return ResponseStatusHelper.getErrorResponse("campusRegionId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusRegionIdé”™è¯¯");
 		}
 		if (name != null) {
 			campusRegion.setName(name);
@@ -45,7 +45,7 @@ public class CampusRegionService {
 	public Map<String, String> removeCampusRegion(Long campusRegionId) {
 		CampusRegion campusRegion = campusRegionDAO.getCampusRegionById(campusRegionId);
 		if(campusRegion == null) {
-			return ResponseStatusHelper.getErrorResponse("campusRegionId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusRegionIdé”™è¯¯");
 		}
 		campusRegion.setStatus(CampusRegionStatus.deleted);
 		return ResponseStatusHelper.getOkResponse();

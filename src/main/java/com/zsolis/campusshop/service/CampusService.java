@@ -63,7 +63,7 @@ public class CampusService {
 		campus.setId(campusId);
 		CampusStore campusStore = campusDAO.getCampusStore(campus, store);
 		if (campusStore == null) {
-			return ResponseStatusHelper.getErrorResponse("input´íÎó");
+			return ResponseStatusHelper.getErrorResponse("inputé”™è¯¯");
 		}
 		campusStore.setStatus(status);
 		return ResponseStatusHelper.getOkResponse();
@@ -80,7 +80,7 @@ public class CampusService {
 	public Map<String, String> setCampus(Long campusId, Long cityId, String name, String description) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusIdé”™è¯¯");
 		}
 		if (cityId != null) {
 			City city = new City();
@@ -99,7 +99,7 @@ public class CampusService {
 	public Map<String, String> changeCampusStatus(Long campusId, CampusStatus status) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusIdé”™è¯¯");
 		}
 		campus.setStatus(status);
 		return ResponseStatusHelper.getOkResponse();
@@ -108,7 +108,7 @@ public class CampusService {
 	public Map<String, String> deleteCampus(Long campusId) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusIdé”™è¯¯");
 		}
 		SuperAdministrator administrator = administratorDAO.getSuperAdministrator();
 		campus.setAdministrator(administrator);
@@ -118,7 +118,7 @@ public class CampusService {
 	public Map<String, String> changeCampusAdministrator(Long campusId, Long administratorId) {
 		Campus campus = campusDAO.getCampusById(campusId);
 		if (campus == null) {
-			return ResponseStatusHelper.getErrorResponse("campusId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("campusIdé”™è¯¯");
 		}
 		Administrator administrator = new SuperAdministrator();
 		administrator.setId(administratorId);

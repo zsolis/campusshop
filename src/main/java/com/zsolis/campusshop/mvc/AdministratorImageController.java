@@ -46,7 +46,7 @@ public class AdministratorImageController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (administratorImageService.addAdministratorImage(administratorId, path) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -61,7 +61,7 @@ public class AdministratorImageController {
 		}
 		Map<String, String> result = administratorImageService.setAdministratorImage(administratorImageId, path);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -75,7 +75,7 @@ public class AdministratorImageController {
 		}
 		Map<String, String> result = administratorImageService.addCampusRecommendImage((Long)jsonMap.get("campusId"), (Long)jsonMap.get("administratorImageId"), (Long)jsonMap.get("location"), (String)jsonMap.get("url"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -90,7 +90,7 @@ public class AdministratorImageController {
 		}
 		Map<String, String> result = administratorImageService.removeCampusRecommendImage(campusId, administratorImageId);
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}
@@ -106,7 +106,7 @@ public class AdministratorImageController {
 		}
 		Map<String, String> result = administratorImageService.setCampusRecommendImage(campusId, administratorImageId, (Long)jsonMap.get("location"), (String)jsonMap.get("url"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return result;
 	}

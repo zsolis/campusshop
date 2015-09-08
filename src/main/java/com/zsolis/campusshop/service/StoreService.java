@@ -81,12 +81,12 @@ public class StoreService {
 		Map<String, String> result = new HashMap<String, String>();
 		if(store == null) {
 			result.put("status", "error");
-			result.put("reason", "ÕËºÅ´íÎó");
+			result.put("reason", "è´¦å·é”™è¯¯");
 			return result;
 		}
 		if(!cryptUtil.comparePassword(passwordAfterSalt, store.getPassword())) {
 			result.put("status", "error");
-			result.put("reason", "ÃÜÂë´íÎó");
+			result.put("reason", "å¯†ç é”™è¯¯");
 			return result;
 		}
 		result.put("status", "ok");
@@ -115,7 +115,7 @@ public class StoreService {
 	public Map<String, String> setPassword(Long storeId, String password) {
 		Store store = storeDAO.getStoreById(storeId);
 		if (store == null) {
-			return ResponseStatusHelper.getErrorResponse("storeId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("storeIdé”™è¯¯");
 		}
 		store.setPassword(password);
 		return ResponseStatusHelper.getOkResponse();
@@ -124,7 +124,7 @@ public class StoreService {
 	public Map<String, String> setStore(Long storeId, String name, String phoneNumber, String address, String description, String statement, Float minimumAmount, Float deliveryFee, String imagePath) {
 		Store store = storeDAO.getStoreById(storeId);
 		if(store == null) {
-			return ResponseStatusHelper.getErrorResponse("storeId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("storeIdé”™è¯¯");
 		}
 		if(name != null) {
 			store.setName(name);

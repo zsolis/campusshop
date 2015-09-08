@@ -13,7 +13,7 @@ public class CampusRegionDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»ØĞ£Ô°ÇøÓò
+	 * æ ¹æ®IDè¿”å›æ ¡å›­åŒºåŸŸ
 	 */
 	public CampusRegion getCampusRegionById(Long campusRegionId) {
 		Session session = getSession();
@@ -22,7 +22,7 @@ public class CampusRegionDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ·µ»ØĞ£Ô°ÓµÓĞµÄÇøÓò
+	 * è¿”å›æ ¡å›­æ‹¥æœ‰çš„åŒºåŸŸ
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getRegionsByCampus(Campus campus) {
@@ -34,7 +34,7 @@ public class CampusRegionDAO extends DAO{
 	
 	/**
 	 * @return
-	 * Ìí¼ÓĞ£Ô°ÇøÓò
+	 * æ·»åŠ æ ¡å›­åŒºåŸŸ
 	 */
 	public Long addCampusRegion(Campus campus, String name, String description) {
 		CampusRegion campusRegion = new CampusRegion(name, description, campus);

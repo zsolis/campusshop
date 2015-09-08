@@ -32,13 +32,13 @@ public class UserService {
 	
 	public Map<String, String> sendVerifyCode(String phoneNumber) {
 		if(userDAO.getUserByPhoneNumber(phoneNumber) != null) {
-			return ResponseStatusHelper.getErrorResponse("phoneNumber´íÎó");
+			return ResponseStatusHelper.getErrorResponse("phoneNumberé”™è¯¯");
 		}
 		int resultCode = verifyHelper.sendVerifyCode(phoneNumber);
 		if (resultCode == 1) {
 			return ResponseStatusHelper.getOkResponse();
 		} else {
-			return ResponseStatusHelper.getErrorResponse("´íÎó´úÂë" + resultCode);
+			return ResponseStatusHelper.getErrorResponse("é”™è¯¯ä»£ç " + resultCode);
 		}
 	}
 	
@@ -67,12 +67,12 @@ public class UserService {
 		RegisteredUser user = userDAO.getUserByPhoneNumber(phoneNumber);
 		if(user == null) {
 			result.put("status", "error");
-			result.put("reason", "ÊÖ»úºÅ´íÎó");
+			result.put("reason", "æ‰‹æœºå·é”™è¯¯");
 			return result;
 		}
 		if(!cryptUtil.comparePassword(passwordAfterSalt, user.getPassword())) {
 			result.put("status", "error");
-			result.put("reason", "ÃÜÂë´íÎó");
+			result.put("reason", "å¯†ç é”™è¯¯");
 			return result;
 		}
 		result.put("status", "ok");

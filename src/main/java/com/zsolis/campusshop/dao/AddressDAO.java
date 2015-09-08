@@ -14,7 +14,7 @@ public class AddressDAO extends DAO{
 	
 	/**
 	 * @return
-	 * ����ID���ص�ַ
+	 * 根据ID返回地址
 	 */
 	public Address getAddressById(Long addressId) {
 		Session session = getSession();
@@ -24,7 +24,7 @@ public class AddressDAO extends DAO{
 	/**
 	 * @return List<Map<String, Object>>
 	 * new map(id, finalAddress)
-	 * �����û�����ĵ�ַ
+	 * 返回用户保存的地址
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> getAddressesByUser(User user) {
@@ -44,8 +44,8 @@ public class AddressDAO extends DAO{
 	
 	/**
 	 * @return
-	 * �����û�Ĭ�ϵ�ַ��û��Ĭ�ϵ�ַ�ķ��ص�һ����ַ
-	 * �����û�����־û�������ʹ������
+	 * 返回用户默认地址，没有默认地址的返回第一个地址
+	 * 参数用户必须持久化，不可使用引用
 	 */
 	public Map<String, Object> getUserDefaultAddress(User user) {
 		Address address = user.getDefaultAddress();
@@ -69,7 +69,7 @@ public class AddressDAO extends DAO{
 	
 	/**
 	 * @return
-	 * �����û���ַ������ID
+	 * 添加用户地址，返回ID
 	 */
 	public Long addAddress(User user, Campus campus, CampusRegion campusRegion, String detail, String phoneNumber, String name) {
 		Address address = new Address(campus, campusRegion, detail, phoneNumber, name, user);

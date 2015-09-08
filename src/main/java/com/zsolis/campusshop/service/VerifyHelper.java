@@ -25,7 +25,7 @@ public class VerifyHelper {
 	
 	public int sendVerifyCode(String phoneNumber) {
 		String verifyCode =  ((Double)(Math.random() * 9000 + 1000)).toString().substring(0, 4);
-		String message = "ÄúµÄÑéÖ¤ÂëÎª" + verifyCode + "£¬¸ĞĞ»ÄúµÄÊ¹ÓÃ¡¾¹ºÁËÃ´¡¿";
+		String message = "æ‚¨çš„éªŒè¯ç ä¸º" + verifyCode + "ï¼Œæ„Ÿè°¢æ‚¨çš„ä½¿ç”¨ã€è´­äº†ä¹ˆã€‘";
 		int smsResult = smsUtil.sendSMS(phoneNumber, message);
 		if(smsResult == 1) {
 			jedisVerifyDAO.setVerifyCode(phoneNumber, verifyCode);

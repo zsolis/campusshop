@@ -53,12 +53,12 @@ public class AdministratorService {
 		Map<String, String> result = new HashMap<String, String>();
 		if(administrator == null) {
 			result.put("status", "error");
-			result.put("reason", "ÕËºÅ´íÎó");
+			result.put("reason", "è´¦å·é”™è¯¯");
 			return result;
 		}
 		if(!cryptUtil.comparePassword(passwordAfterSalt, administrator.getPassword())) {
 			result.put("status", "error");
-			result.put("reason", "ÃÜÂë´íÎó");
+			result.put("reason", "å¯†ç é”™è¯¯");
 			return result;
 		}
 		result.put("status", "ok");
@@ -78,7 +78,7 @@ public class AdministratorService {
 	public Map<String, String> setPassword(Long administratorId, String password) {
 		Administrator administrator = administratorDAO.getAdministratorById(administratorId);
 		if(administrator == null) {
-			return ResponseStatusHelper.getErrorResponse("administratorId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("administratorIdé”™è¯¯");
 		}
 		administrator.setPassword(password);
 		return ResponseStatusHelper.getOkResponse();
@@ -87,7 +87,7 @@ public class AdministratorService {
 	public Map<String, String> setCampusAdministrator(Long administratorId, String account, String name, String phoneNumber) {
 		CampusAdministrator administrator = (CampusAdministrator)administratorDAO.getAdministratorById(administratorId);
 		if(administrator == null) {
-			return ResponseStatusHelper.getErrorResponse("administratorId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("administratorIdé”™è¯¯");
 		}
 		if (account != null) {
 			administrator.setAccount(account);

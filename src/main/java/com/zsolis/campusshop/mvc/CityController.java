@@ -31,7 +31,7 @@ public class CityController {
 		}
 		Long result = cityService.addCity(jsonMap.get("name"), jsonMap.get("province"));
 		if (result == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -45,7 +45,7 @@ public class CityController {
 			return ResponseStatusHelper.getErrorResponse("sessionToken");
 		}
 		if (cityService.setCity(cityId, jsonMap.get("name"), jsonMap.get("province")) == null) {
-			return ResponseStatusHelper.getErrorResponse("Ð´Èë´íÎó");
+			return ResponseStatusHelper.getErrorResponse("å†™å…¥é”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}

@@ -14,7 +14,7 @@ public class OrderDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ÓÉOrderÉú³ÉorderMap£¬²»·ÃÎÊÊı¾İ¿â
+	 * ç”±Orderç”ŸæˆorderMapï¼Œä¸è®¿é—®æ•°æ®åº“
 	 */
 	public Map<String, Object> getOrderMapByOrder(Order order) {
 		Map<String, Object> orderMap = new HashMap<String, Object>();
@@ -42,7 +42,7 @@ public class OrderDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»Ø¶©µ¥
+	 * æ ¹æ®IDè¿”å›è®¢å•
 	 */
 	public Order getOrderById(Long orderId) {
 		Session session = getSession();
@@ -53,7 +53,7 @@ public class OrderDAO extends DAO {
 	 * @param status
 	 * @param page
 	 * @return
-	 * ·µ»Ø¸ÃµêÆÌÈ«²¿¶©µ¥£¬°´ÕÕÊ±¼ä½µĞòÅÅĞò
+	 * è¿”å›è¯¥åº—é“ºå…¨éƒ¨è®¢å•ï¼ŒæŒ‰ç…§æ—¶é—´é™åºæ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Order> getOrdersByStoreOrderedByDateDesc(Store store, int page) {
@@ -69,7 +69,7 @@ public class OrderDAO extends DAO {
 	 * @param status
 	 * @param page
 	 * @return
-	 * ·µ»Ø¸ÃµêÆÌÄ³¸ö×´Ì¬µÄ¶©µ¥£¬°´ÕÕÊ±¼ä½µĞòÅÅĞò
+	 * è¿”å›è¯¥åº—é“ºæŸä¸ªçŠ¶æ€çš„è®¢å•ï¼ŒæŒ‰ç…§æ—¶é—´é™åºæ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Order> getOrdersByStoreOrderStatusOrderedByDateDesc(Store store, OrderStatus status, int page) {
@@ -86,7 +86,7 @@ public class OrderDAO extends DAO {
 	 * @param status
 	 * @param page
 	 * @return
-	 * ·µ»Ø¸ÃÓÃ»§È«²¿¶©µ¥£¬°´Ê±¼ä½µĞòÅÅĞò
+	 * è¿”å›è¯¥ç”¨æˆ·å…¨éƒ¨è®¢å•ï¼ŒæŒ‰æ—¶é—´é™åºæ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Order> getOrdersByUserOrderedByDateDesc(User user, int page) {
@@ -102,7 +102,7 @@ public class OrderDAO extends DAO {
 	 * @param status
 	 * @param page
 	 * @return
-	 * ·µ»Ø¸ÃÓÃ»§Ä³¸ö×´Ì¬µÄ¶©µ¥£¬°´Ê±¼ä½µĞòÅÅĞò
+	 * è¿”å›è¯¥ç”¨æˆ·æŸä¸ªçŠ¶æ€çš„è®¢å•ï¼ŒæŒ‰æ—¶é—´é™åºæ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Order> getOrdersByUserOrderStatusOrderedByDateDesc(User user, OrderStatus status, int page) {
@@ -117,7 +117,7 @@ public class OrderDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÏÖ½ğ¶©µ¥£¬·µ»Ø¶©µ¥ºÅ
+	 * æ·»åŠ ç°é‡‘è®¢å•ï¼Œè¿”å›è®¢å•å·
 	 */
 	public Long addCashOrder(User user, Store store, Address address, Set<Map<String, Object>> items, 
 			String userNote, Float deliveryFee, Float totalPrice) {
@@ -137,7 +137,7 @@ public class OrderDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÖ§¸¶±¦Ö±½Óµ½ÕË¶©µ¥£¬·µ»Ø¶©µ¥ºÅ
+	 * æ·»åŠ æ”¯ä»˜å®ç›´æ¥åˆ°è´¦è®¢å•ï¼Œè¿”å›è®¢å•å·
 	 */
 	public Long addAlipayDirectOrder(User user, Store store, Address address, Set<Map<String, Object>> items, 
 			String userNote, Float deliveryFee, Float totalPrice) {

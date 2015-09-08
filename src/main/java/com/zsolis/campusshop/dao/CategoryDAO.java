@@ -13,7 +13,7 @@ public class CategoryDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ¸ù¾İID·µ»Ø·ÖÀà
+	 * æ ¹æ®IDè¿”å›åˆ†ç±»
 	 */
 	public Category getCategoryById(Long categoryId) {
 		Session session = getSession();
@@ -22,7 +22,7 @@ public class CategoryDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØÈ«²¿·ÖÀà
+	 * è¿”å›å…¨éƒ¨åˆ†ç±»
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Category> getCategories() {
@@ -33,7 +33,7 @@ public class CategoryDAO extends DAO {
 	
 	/**
 	 * @return
-	 * ·µ»ØĞ£Ô°°üº¬µÄÉÌÆ··ÖÀàÁĞ±í
+	 * è¿”å›æ ¡å›­åŒ…å«çš„å•†å“åˆ†ç±»åˆ—è¡¨
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Category> getCategoriesByCampus(Campus campus) {
@@ -45,7 +45,7 @@ public class CategoryDAO extends DAO {
 	
 	/**
 	 * @return
-	 * Ìí¼ÓÉÌÆ··ÖÀà
+	 * æ·»åŠ å•†å“åˆ†ç±»
 	 */
 	public Long addCategory(String name) {
 		Category category = new Category(name);

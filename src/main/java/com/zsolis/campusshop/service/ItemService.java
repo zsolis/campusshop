@@ -200,7 +200,7 @@ public class ItemService {
 	public Map<String, String> removeItem(Long itemId) {
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemIdé”™è¯¯");
 		}
 		item.setStatus(ItemStatus.deleted);
 		return ResponseStatusHelper.getOkResponse();
@@ -209,7 +209,7 @@ public class ItemService {
 	public Map<String, String> setItem(String newTypeString, Long itemId, Long categoryId, String name, Float presentPrice, Long stock, String brief, String detail, String barcode, ItemStatus status, Float originalPrice, Long limit) {
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemIdé”™è¯¯");
 		}
 		if(categoryId != null) {
 			Category category = new Category();
@@ -244,7 +244,7 @@ public class ItemService {
 		} else if (newTypeString.equals("PromotionItem")) {
 			itemDAO.switchPromotionItem(itemId, originalPrice, limit);
 		} else {
-			return ResponseStatusHelper.getErrorResponse("newType´íÎó");
+			return ResponseStatusHelper.getErrorResponse("newTypeé”™è¯¯");
 		}
 		return ResponseStatusHelper.getOkResponse();
 	}
@@ -255,7 +255,7 @@ public class ItemService {
 		itemImage.setId(itemImageId);
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemIdé”™è¯¯");
 		}
 		item.setMainImage(itemImage);
 		return ResponseStatusHelper.getOkResponse();
@@ -264,7 +264,7 @@ public class ItemService {
 	public Map<String, String> setItemMainImage(Long itemId, String path) {
 		Item item = itemDAO.getItemById(itemId);
 		if (item == null) {
-			return ResponseStatusHelper.getErrorResponse("itemId´íÎó");
+			return ResponseStatusHelper.getErrorResponse("itemIdé”™è¯¯");
 		}
 		ItemImage itemImage = item.getMainImage();
 		itemImage.setPath(path);
@@ -296,7 +296,7 @@ public class ItemService {
 		item.setId(itemId);
 		CampusRecommendItem campusRecommendItem = itemDAO.getCampusRecommendItem(campus, item);
 		if (campusRecommendItem == null) {
-			return ResponseStatusHelper.getErrorResponse("input´íÎó");
+			return ResponseStatusHelper.getErrorResponse("inputé”™è¯¯");
 		}
 		campusRecommendItem.setPriority(priority);
 		return ResponseStatusHelper.getOkResponse();

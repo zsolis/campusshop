@@ -5,7 +5,7 @@
 1.项目分为DAO、Service、MVC三层，上层只与其下一层有依赖关系，domain作为各层调用的公共部分，util服务于DAO、Service。各层按相应的包名组织在一起<br>
 2.Hibernate作为ORM框架，将domain映射为关系模型，提供DAO服务及事务管理。Jedis提供访问Redis的DAO服务<br>
 3.Spring提供实体管理、依赖注入、AOP、MVC服务<br>
-4.MVC提供RESTful服务，返回类型为JSON
+4.MVC提供RESTful服务，返回类型为JSON<br>
 5.Service类的每个方法都调用DAO，所有Spring AOP对Service类的每个方法包装了事务管理<br>
 # 使用前注意事项
 1.该项目使用了MySQL数据库、Redis内存存储、七牛云图片云端存储、畅天游手机短信发送等外部服务，在启动项目前需要修改相关配置。<br>

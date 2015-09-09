@@ -12,4 +12,4 @@
 2)main/java/com/zsolis/campusshop/util/JedisUtil.java配置Redis链接信息
 3)main/java/com/zsolis/campusshop/util/SMSUtil.java配置畅天游账号、密码（http://www.changty.com/）
 4)main/java/com/zsolis/campusshop/service/QiniuCloudeHelper.java配置七牛云密钥（http://www.qiniu.com/）
-2.数据库由Hibernate根据领域模型映射规则自动生成，初次启动时在MySQL建立gouleme的数据库，同时去掉hibernate.cfg.xml中<property name="hbm2ddl.auto">update</property>的注释
+2.数据库由Hibernate根据领域模型映射规则自动生成，初次启动时在MySQL建立gouleme的数据库，同时去掉hibernate.cfg.xml中name="hbm2ddl.auto" update的注释

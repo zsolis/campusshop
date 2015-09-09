@@ -1,6 +1,7 @@
 # campusshop-校园 O2O 购物平台
 该项目使用Maven管理依赖、打包，可导入Eclipse for JaveEE编辑修改。<br>
 全部代码使用UTF-8编码，最低JDK要求1.7。<br>
+modeling.mdj是StarUML工程文件，包含用例设计和领域模型。在项目起始阶段设计，在实现过程有改动。<br>
 # 项目技术概要
 1.项目分为DAO、Service、MVC三层，上层只与其下一层有依赖关系，domain作为各层调用的公共部分，util服务于DAO、Service。各层按相应的包名组织在一起<br>
 2.Hibernate作为ORM框架，将domain映射为关系模型，提供DAO服务及事务管理。Jedis提供访问Redis的DAO服务<br>
